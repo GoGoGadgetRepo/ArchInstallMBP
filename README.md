@@ -12,7 +12,7 @@ setfont latarcyrheb-sun32
 Following is my disk setup. I am choosing not to create a special parition for swap file. If swap is required in the future, I plan to create a swap file.
 
 | Size | Mount Point | Format | Patition Code |
------------------------------------------------
+|---|---|---|---|
 | 300M | /boot | FAT32 | UEFI Boot Parition |
 | * | / | F2FS | Linux File System |
 
