@@ -39,7 +39,7 @@ lsblk allows you to look at the structure of the disk.
 pacstrap /mnt base base-devel vim intel-ucode sudo networkmanager wpa_supplicant  git util-linux sway wlroots wayland swaylock swayidle termite
 ```
 | Package | Purpose |
----------------------
+|---|---|
 | base | The required one with base utils. |
 | base-devel | Development tools |
 | vim | Text Editor |
@@ -48,6 +48,13 @@ pacstrap /mnt base base-devel vim intel-ucode sudo networkmanager wpa_supplicant
 | networkmanager | |
 | wpa_supplicant | |
 | git | |
+| util-linux | |
+| sway | Wayland based tiling windows manager and 100% compatible with i3 |
+| wlroots | |
+| wayland | The new Xorg compositor |
+| swaylock | Sway's addon to allow system lockdown with idle |
+| swayidle | | 
+| termite | |
 
 #### Configuring fstab
 ```bash
