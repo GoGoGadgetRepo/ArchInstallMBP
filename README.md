@@ -3,7 +3,7 @@
 ## Installation Instructions
 ### Setting the font
 Macbook Pro have HiDPI which makes reading the text hard. To make it readable.
-'''bash
+'''
 setfont latarcyrheb-sun32
 '''
 ### Disk Prepararion 
