@@ -1,5 +1,7 @@
 # Macbook Pro 11,4
 
+You can follow the readme file and carry the setup step by step or run the automated scripts. 
+
 ## Installation Instructions
 ### Setting the font
 Macbook Pro have HiDPI which makes reading the text hard. To make it readable.
@@ -7,22 +9,24 @@ Macbook Pro have HiDPI which makes reading the text hard. To make it readable.
 setfont latarcyrheb-sun32
 ```
 ### Disk Prepararion 
+Following is my disk setup. I am choosing not to create a special parition for swap file. If swap is required in the future, I plan to create a swap file.
 
-300MB for UEFI Boot
-Rest for the root partition
+| Size | Mount Point | Format | Patition Code |
+-----------------------------------------------
+| 300M | /boot | FAT32 | UEFI Boot Parition |
+| * | / | F2FS | Linux File System |
 
-#### Perparing the Harddrive or SSD
 ```bash
 cgdisk /dev/sda
 ```
-
+#### Formating the Drives
+This setup will be using F2FS as this file system designed for falsh drives.
 ```bash
 mkfs.vfat -F32 /dev/sda1
 mkfs.f2fs -l main /dev/sda2
 ```
-I am using F2FS as this file system is designed for SSD drives. 
 
-### Mounting drives for install
+#### Mounting drives for install
 ```bash
 mount /dev/sda2 /mnt
 mkdir /mnt/boot && mount /dev/sda1 /mnt/boot
