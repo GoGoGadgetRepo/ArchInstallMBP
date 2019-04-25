@@ -36,7 +36,7 @@ lsblk allows you to look at the structure of the disk.
 
 ### Installing Arch Linux files
 ```bash
-pacstrap /mnt base base-devel vim intel-ucode sudo networkmanager wpa_supplicant  git util-linux sway wlroots wayland swaylock swayidle termite
+pacstrap /mnt base base-devel vim intel-ucode sudo networkmanager wpa_supplicant  git util-linux sway wlroots wayland swaylock swayidle termite mako grim slurp wl-clipboard
 ```
 | Package | Purpose |
 |---|---|
@@ -55,6 +55,9 @@ pacstrap /mnt base base-devel vim intel-ucode sudo networkmanager wpa_supplicant
 | swaylock | Sway's addon to allow system lockdown with idle |
 | swayidle | | 
 | termite | |
+| mako | Notification Daemon |
+| grim + slurp | Screenshot |
+| wl-clipboard | Clipboard copy/paste |
 
 #### Configuring fstab
 ```bash

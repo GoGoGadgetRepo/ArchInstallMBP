@@ -1,10 +1,9 @@
-#
+#!/usr/bin/bash
+# Defining the shell path and global variables 
+SHELL_PATH=$(readlink -f $0 | xargs dirname)
+source ${SHELL_PATH}/scripts/global.sh
 
-# Colour Varaibles
-red=`tput setaf 1`
-green=`tput setaf 2`
-reset=`tput sgr0`
-
+# Please make changes to the drive based on your hardware configuration
 echo "${green}Formatting the drivers...${reset}"
 mkfs.vfat -F32 /dev/sda1
 mkfs.f2fs -f -l main /dev/sda2
@@ -21,8 +20,15 @@ cp /etc/pacman.d/mirrorlist  /etc/pacman.d/mirrorlist.backup
 reflector --verbose --latest 10 --sort rate --save /etc/pacman.d/mirrorlist
 
 echo "${green}Installing all packages to get sway under wayland working with audio. Some additional useful packages are included also.${reset}"
-pacstrap /mnt base base-devel vim intel-ucode sudo networkmanager wpa_supplicant neofetch git alsa-utils sway wlroots wayland swaylock swayidle termite xorg-server-xwayland pulseaudio-alsa ttf-Liberation rofi lxapperance
+pacstrap /mnt base base-devel vim intel-ucode sudo networkmanager wpa_supplicant neofetch git alsa-utils sway wlroots wayland swaylock swayidle termite xorg-server-xwayland pulseaudio-alsa ttf-Liberation rofi lxapperance linux-lts
 
 echo "${green}Generating fstab for the drives.${reset}"
 genfstab -L -p /mnt >> /mnt/etc/fstab
+
+echo "${green} ==============================================================="
+echo " =  Entering as root into Arch Linux Install Drive "
+echo " =  You need to run install.sh to set all configurations for"
+echo " =  arch Linux system and Macbook Pro settings."
+echo "  ===============================================================${reset}"
+arch-chroot /mnt
 
