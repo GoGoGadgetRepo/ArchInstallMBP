@@ -1,11 +1,21 @@
+
+echo "${green}**************************************************"
+echo "**  Enabling/Starting Network Manager with 30sec WAIT"
+echo "**************************************************${reset}"
+sudo systemctl enable NetworkManager 
 sudo systemctl start NetworkManager
 
 sleep 30
 
 echo "**************************************************"
-echo "Connecting to Wifi"
+echo "Enabling Wifi based on User Choice"
 echo "**************************************************"
-nmcli dev wifi connect <SSID> password <password>
+nmcli device wifi
+echo "Please select the Wifi to connect to you. Type the name"
+read SSID
+echo "Please provide the password for ${SSID}"
+read password
+nmcli dev wifi connect ${SSID} password ${password} 
 echo "**************************************************"
 echo "Installing & Enabling Power & Thermal."
 echo "**************************************************"

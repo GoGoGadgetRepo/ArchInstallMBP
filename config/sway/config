@@ -18,6 +18,7 @@ font pango:Noto Sans 12
 
 # Your preferred terminal emulator
 set $term termite
+#set $term st
 # Your preferred application launcher
 #set $menu rofi -combi-modi window#drun#ssh -opacity "0" -theme Arc-Dark -show combi -modi combi
 set $menu rofi -combi-modi window#drun#ssh  -opacity "50" -font "Noto Sans 20" -show combi
@@ -82,7 +83,7 @@ exec swayidle \
     floating_modifier $mod normal
 
     # reload the configuration file
-    bindsym $mod+Shift+c reload
+    bindsym $mod+Shift+r reload
 
     # exit sway (logs you out of your wayland session)
     bindsym $mod+Shift+e exit
@@ -209,19 +210,23 @@ title_align		center
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-bar {
-    position top
-    output eDP-1
+#bar {
+#    position top
+#    output eDP-1
 
-    status_command while date +'%d-%B-%Y %l:%M:%S %p'; do sleep 1; done
+#    status_command while date +'%d-%B-%Y %l:%M:%S %p'; do sleep 1; done
+#    status_command i3status -c ~/.config/i3status/config
+#     status_command waybar
 
-    colors {
-        # statusline #000000
-        # background #87A96B
-        # inactive_workspace #32323200 #32323200 #5c5c5c
-    }
-}
+#    colors {
+        #statusline #000000
+        #background #87A96B
+        #inactive_workspace #32323200 #32323200 #5c5c5c
+#    }
+#}
 
+exec --no-startup-id waybar
+#xwayland disable  # Disabling X Org
 
 # PulseAudio key bindings
 bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 10%+ unmute
@@ -241,6 +246,48 @@ bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness
 # Keyboard brightness controls
 bindsym XF86KbdBrightnessUp exec kbdlight up
 bindsym XF86KbdBrightnessDown exec kbdlight down
+
+
+# Settings 
+#
+# Window
+gaps inner 5
+gaps outer 0
+
+default_border pixel 3
+focus_follows_mouse yes
+smart_borders on
+smart_gaps on
+
+
+# Solarized
+#
+set $black      #000000
+set $white      #FFFFFF
+set $gray1      #1a1a1a
+set $gray2      #292b2e
+set $gray3      #5f676a
+
+set $base03     #002b36
+set $base02     #073642
+set $base01     #586e75
+set $base00     #657b83
+set $base0      #839496
+set $base1      #93a1a1
+set $base2      #eee8d5
+set $base3      #fdf6e3
+set $yellow     #b58900
+set $orange     #cb4b16
+set $red        #dc322f
+set $magenta    #d33682
+set $violet     #6c71c4
+set $blue       #268bd2
+set $cyan       #2aa198
+set $green      #859900
+
+# class                 border  backgr. text    indica. child_border
+client.focused          $red    $gray3  $white  $red    $red
+client.unfocused        $base00 #222222 #888888 #292d2e #222222
 
 
 include /etc/sway/config.d/*

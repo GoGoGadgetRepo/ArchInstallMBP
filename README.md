@@ -1,6 +1,7 @@
 # Macbook Pro 11,4
 
 You can follow the readme file and carry the setup step by step or run the automated scripts. 
+There are 3 sripts (pre, post and package install).
 
 ## Installation Instructions
 ### Setting the font
@@ -45,16 +46,16 @@ pacstrap /mnt base base-devel vim intel-ucode sudo networkmanager wpa_supplicant
 | vim | Text Editor |
 | intel-ucode | |
 | sudo | To run superuser commands without changing the suer |
-| networkmanager | |
+| networkmanager | Package to manage network connections |
 | wpa_supplicant | |
 | git | |
 | util-linux | |
 | sway | Wayland based tiling windows manager and 100% compatible with i3 |
-| wlroots | |
+| wlroots | Required by wayland |
 | wayland | The new Xorg compositor |
 | swaylock | Sway's addon to allow system lockdown with idle |
 | swayidle | | 
-| termite | |
+| termite | Terminal application |
 | mako | Notification Daemon |
 | grim + slurp | Screenshot |
 | wl-clipboard | Clipboard copy/paste |

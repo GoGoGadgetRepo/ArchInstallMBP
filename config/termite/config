@@ -74,8 +74,8 @@ color15 = #ffffff
 
 [hints]
 font = Liberation Mono 12
-#foreground = #dcdccc
-#background = #3f3f3f
+foreground = #dcdccc
+background = #3f3f3f
 #active_foreground = #e68080
 #active_background = #3f3f3f
 padding = 2

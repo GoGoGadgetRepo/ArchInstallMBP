@@ -44,8 +44,4 @@ passwd masroor
 echo "${green}Password for root${reset}"
 passwd
 
-echo "${green}**************************************************"
-echo "**  Enabling Network Manager"
-echo "**************************************************${reset}"
-sudo systemctl enable NetworkManager 
 
