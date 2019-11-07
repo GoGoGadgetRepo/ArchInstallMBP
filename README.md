@@ -1,4 +1,4 @@
-# Macbook Pro 11,4
+# Macbook Pro 11,4 {Status = Development}
 
 You can follow the readme file and carry the setup step by step or run the automated scripts. 
 There are 3 sripts (pre, post and package install).
