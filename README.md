@@ -15,7 +15,7 @@ Following is my disk setup. I am choosing not to create a special parition for s
 | Size | Mount Point | Format | Patition Code |
 |---|---|---|---|
 | 300M | /boot | FAT32 | UEFI Boot Parition |
-| * | / | F2FS | Linux File System |
+| * | / | ext4 | Linux File System |
 
 ```bash
 cgdisk /dev/sda
@@ -24,7 +24,7 @@ cgdisk /dev/sda
 This setup will be using F2FS as this file system designed for falsh drives.
 ```bash
 mkfs.vfat -F32 /dev/sda1
-mkfs.f2fs -l main /dev/sda2
+mkfs.ext4 -l main /dev/sda2
 ```
 
 #### Mounting drives for install

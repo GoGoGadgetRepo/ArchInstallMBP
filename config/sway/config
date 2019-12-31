@@ -27,7 +27,7 @@ set $menu rofi -combi-modi window#drun#ssh  -opacity "50" -font "Noto Sans 20" -
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg $HOME/Pictures/Wallpaper/wp.png  fill 
+#output * bg $HOME/Pictures/Wallpaper/wp.png  fill 
 #
 # Example configuration:
 #
