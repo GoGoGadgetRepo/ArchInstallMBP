@@ -28,6 +28,9 @@ pacstrap /mnt base base-devel vim intel-ucode sudo networkmanager wpa_supplicant
 echo "${green}Generating fstab for the drives.${reset}"
 genfstab -L -p /mnt >> /mnt/etc/fstab
 
+# Copying install scripts to new location
+cd /mnt 
+git clone https://github.com/GoGoGadgetRepo/ArchInstallMBP
 echo "${green} ==============================================================="
 echo " =  Entering as root into Arch Linux Install Drive "
 echo " =  You need to run install.sh to set all configurations for"
@@ -35,4 +38,3 @@ echo " =  arch Linux system and Macbook Pro settings."
 echo "  ===============================================================${reset}"
 arch-chroot /mnt
 
-git clone https://github.com/GoGoGadgetRepo/ArchInstallMBP
