@@ -9,6 +9,16 @@ Macbook Pro have HiDPI which makes reading the text hard. To make it readable.
 ```
 setfont latarcyrheb-sun32
 ```
+If the system is not connected to internet through LAN, it can be connected using wifi
+```
+wifi-menu
+```
+
+Git is not avaialble in the start which can be installed using:
+```
+pacman -Sy git
+```
+
 ### Disk Prepararion 
 Following is my disk setup. I am choosing not to create a special parition for swap file. If swap is required in the future, I plan to create a swap file.
 
