@@ -37,7 +37,6 @@ cp ${SHELL_PATH}/config/hid_apple.conf /etc/modprobe.d/
 
 sed -i '/Color'/s/^#//g /etc/pacman.conf
 
-
 useradd -m -g users -G wheel -s /bin/bash masroor
 echo "${green}Password for the user masroor${reset}"
 passwd masroor

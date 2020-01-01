@@ -6,7 +6,7 @@ source ${SHELL_PATH}/scripts/global.sh
 # Please make changes to the drive based on your hardware configuration
 echo "${green}Formatting the drivers...${reset}"
 mkfs.vfat -F32 /dev/sda1
-mkfs.f2fs -f -l main /dev/sda2
+mkfs.ext4 /dev/sda2
 
 echo "${green}Mounting the drives${reset}"
 mount /dev/sda2 /mnt
@@ -20,7 +20,10 @@ cp /etc/pacman.d/mirrorlist  /etc/pacman.d/mirrorlist.backup
 reflector --verbose --latest 10 --sort rate --save /etc/pacman.d/mirrorlist
 
 echo "${green}Installing all packages to get sway under wayland working with audio. Some additional useful packages are included also.${reset}"
-pacstrap /mnt base base-devel vim intel-ucode sudo networkmanager wpa_supplicant neofetch git alsa-utils sway wlroots wayland swaylock swayidle termite xorg-server-xwayland pulseaudio-alsa ttf-Liberation rofi lxapperance linux-lts waybar 
+pacstrap /mnt base base-devel vim intel-ucode sudo networkmanager wpa_supplicant neofetch git alsa-utils sway wlroots wayland swaylock swayidle termite pulseaudio-alsa ttf-Liberation rofi lxapperance linux-lts waybar 
+
+# Packages for backward compatibility
+# xorg-server-xwayland 
 
 echo "${green}Generating fstab for the drives.${reset}"
 genfstab -L -p /mnt >> /mnt/etc/fstab
@@ -32,3 +35,4 @@ echo " =  arch Linux system and Macbook Pro settings."
 echo "  ===============================================================${reset}"
 arch-chroot /mnt
 
+git clone https://github.com/GoGoGadgetRepo/ArchInstallMBP
