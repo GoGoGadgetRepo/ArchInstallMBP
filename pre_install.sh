@@ -21,7 +21,7 @@ reflector --verbose --latest 10 --sort rate --save /etc/pacman.d/mirrorlist
 
 echo "${green}Installing all packages to get sway under wayland working with audio. Some additional useful packages are included also.${reset}"
 #pacstrap /mnt base base-devel vim intel-ucode sudo networkmanager wpa_supplicant neofetch git alsa-utils sway wlroots wayland swaylock swayidle termite pulseaudio-alsa rofi linux-lts waybar linux 
-pacstrap /mnt base base-devel vim intel-ucode sudo networkmanager wpa_supplicant coreutils iw iwd 
+pacstrap /mnt base base-devel vim intel-ucode sudo networkmanager wpa_supplicant coreutils iw iwd broadcom-wl linux b43-fwcutter dosfstools
 # Packages for backward compatibility
 # xorg-server-xwayland ttf-Liberation  lxapperance 
 
