@@ -21,7 +21,7 @@ reflector --verbose --latest 10 --sort rate --save /etc/pacman.d/mirrorlist
 
 echo "${green}Installing all packages to get sway under wayland working with audio. Some additional useful packages are included also.${reset}"
 #pacstrap /mnt base base-devel vim intel-ucode sudo networkmanager wpa_supplicant neofetch git alsa-utils sway wlroots wayland swaylock swayidle termite pulseaudio-alsa rofi linux-lts waybar linux 
-pacstrap /mnt base base-devel vim intel-ucode sudo networkmanager wpa_supplicant broadcom-wl coreutils iw iwd 
+pacstrap /mnt base base-devel vim intel-ucode sudo networkmanager wpa_supplicant coreutils iw iwd 
 # Packages for backward compatibility
 # xorg-server-xwayland ttf-Liberation  lxapperance 
 
@@ -37,4 +37,7 @@ echo " =  You need to run install.sh to set all configurations for"
 echo " =  arch Linux system and Macbook Pro settings."
 echo "  ===============================================================${reset}"
 arch-chroot /mnt
+
+umount -R /mnt
+shutdown now
 
