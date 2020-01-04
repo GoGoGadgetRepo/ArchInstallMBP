@@ -8,6 +8,7 @@ echo "${green}Formatting the drivers...${reset}"
 mkfs.vfat -F32 /dev/sda1
 mkfs.ext4 /dev/sda2
 
+
 echo "${green}Mounting the drives${reset}"
 mount /dev/sda2 /mnt
 mkdir /mnt/boot
@@ -20,8 +21,8 @@ cp /etc/pacman.d/mirrorlist  /etc/pacman.d/mirrorlist.backup
 reflector --verbose --latest 10 --sort rate --save /etc/pacman.d/mirrorlist
 
 echo "${green}Installing all packages to get sway under wayland working with audio. Some additional useful packages are included also.${reset}"
-#pacstrap /mnt base base-devel vim intel-ucode sudo networkmanager wpa_supplicant neofetch git alsa-utils sway wlroots wayland swaylock swayidle termite pulseaudio-alsa rofi linux-lts waybar linux 
-pacstrap /mnt base base-devel vim intel-ucode sudo networkmanager wpa_supplicant coreutils iw iwd broadcom-wl linux b43-fwcutter dosfstools
+pacstrap /mnt base base-devel vim intel-ucode sudo networkmanager wpa_supplicant neofetch git alsa-utils sway wlroots wayland swaylock swayidle termite pulseaudio-alsa rofi linux-lts waybar linux coreutils iw iwd linux linux-lts linux-zen dosfstools linux-firmware
+
 # Packages for backward compatibility
 # xorg-server-xwayland ttf-Liberation  lxapperance 
 
