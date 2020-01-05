@@ -30,8 +30,8 @@ bootctl --path=/boot install
 cp ${SHELL_PATH}/config/arch.conf /boot/loader/entries/
 cp ${SHELL_PATH}/config/loader.conf /boot/loader/
 
-cp ${SHELL_PATH}/config/zen.conf /boot/loader/
-cp ${SHELL_PATH}/config/lts.conf /boot/loader/
+cp ${SHELL_PATH}/config/zen.conf /boot/loader/entries/
+cp ${SHELL_PATH}/config/lts.conf /boot/loader/entries/
 
 echo "${green}Setting the sound card index to PCA${reset}"
 cp ${SHELL_PATH}/config/snd_hda_intel.conf /etc/modprobe.d/
@@ -44,5 +44,7 @@ echo "${green}Password for the user masroor${reset}"
 passwd masroor
 echo "${green}Password for root${reset}"
 passwd
+
+bootctl set-default "zen"
 
 

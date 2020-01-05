@@ -21,10 +21,7 @@ cp /etc/pacman.d/mirrorlist  /etc/pacman.d/mirrorlist.backup
 reflector --verbose --latest 10 --sort rate --save /etc/pacman.d/mirrorlist
 
 echo "${green}Installing all packages to get sway under wayland working with audio. Some additional useful packages are included also.${reset}"
-pacstrap /mnt base base-devel vim intel-ucode sudo networkmanager wpa_supplicant neofetch git alsa-utils sway wlroots wayland swaylock swayidle termite pulseaudio-alsa rofi waybar coreutils iw iwd linux linux-lts linux-zen dosfstools linux-firmware
-
-# Packages for backward compatibility
-# xorg-server-xwayland ttf-Liberation  lxapperance 
+pacstrap /mnt base base-devel vim intel-ucode sudo networkmanager wpa_supplicant neofetch git alsa-utils pulseaudio-alsa coreutils linux linux-lts linux-zen dosfstools linux-firmware
 
 echo "${green}Generating fstab for the drives.${reset}"
 genfstab -L -p /mnt >> /mnt/etc/fstab

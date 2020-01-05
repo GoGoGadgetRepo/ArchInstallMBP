@@ -1,3 +1,7 @@
+#!/usr/bin/bash
+# Defining the shell path and global variables 
+SHELL_PATH=$(readlink -f $0 | xargs dirname)
+source ${SHELL_PATH}/scripts/global.sh
 
 echo "${green}**************************************************"
 echo "**  Enabling/Starting Network Manager with 30sec WAIT"
@@ -7,18 +11,18 @@ sudo systemctl start NetworkManager
 
 sleep 30
 
-echo "**************************************************"
+echo "${green}**************************************************"
 echo "Enabling Wifi based on User Choice"
-echo "**************************************************"
+echo "**************************************************${reset}"
 nmcli device wifi
-echo "Please select the Wifi to connect to you. Type the name"
+echo "${green}Please select the Wifi to connect to you. Type the name${reset}"
 read SSID
-echo "Please provide the password for ${SSID}"
+echo "${green}Please provide the password for ${SSID}${reset}"
 read password
 nmcli dev wifi connect ${SSID} password ${password} 
-echo "**************************************************"
+echo "${green}**************************************************"
 echo "Installing & Enabling Power & Thermal."
-echo "**************************************************"
+echo "**************************************************${reset}"
 sudo pacman --noconfirm -S tlp tlp-sleep cpupower util-linux
 sudo systemctl enable tlp tlp-sleep
 sudo systemctl start tlp
@@ -29,9 +33,9 @@ sudo cpupower frequency-set -g powersave
 
 sudo systemctl enable fstrim.timer
 
-echo "**************************************************"
+echo "${green}**************************************************"
 echo "Installing pikaur"
-echo "**************************************************"
+echo "**************************************************${reset}"
 export PACK=PIKAUR
 sudo pacman --noconfirm -S cmake clang
 mkdir $HOME/$PACK 
@@ -40,49 +44,45 @@ cd $HOME/$PACK
 makepkg -fsri
 cd /backup
 
-echo "**************************************************"
+echo "${green}**************************************************"
 echo "Enabling fans for the MacbookPro"
-echo "**************************************************"
+echo "**************************************************${reset}"
 pikaur --noconfirm -S mbpfan-git kbdlight
 sudo cp mbpfan.conf /etc/
 sudo systemctl enable mbpfan
 sudo systemctl start mbpfan
 
 
-echo "**************************************************"
+echo "${green}**************************************************"
 echo "Enabling fans for the MacbookPro"
-echo "**************************************************"
+echo "**************************************************${reset}"
 pikaur --noconfirm -S thermald
 sudo systemctl enable thermald
 sudo systemctl start thermald
 
-echo "**************************************************"
+echo "${green}**************************************************"
 echo "Setting Audio"
-echo "**************************************************"
-#sudo pacman --noconfirm -S xf86-video-intel vulkan-intel wayland  sway  xorg-server-xwayland
+echo "**************************************************${reset}"
 sudo pacman --noconfirm -S alsa-utils pulseaudio-alsa
 
-echo "**************************************************"
+echo "${green}**************************************************"
 echo "*** Moving Configurations"
-echo "**************************************************"
-mkdir -p $HOME/.config/sway
-mkdir -p $HOME/.config/termite
+echo "**************************************************${reset}"
+mkdir -p $HOME/.config/sway/
+mkdir -p $HOME/.config/termite/
 # mkdir -p $HOME/.vim
-mkdir -p $HOME/Pictures/Wallpaper
 
 
-echo "**************************************************"
+echo "${green}**************************************************"
 echo "*** Copying Configurations"
-echo "**************************************************"
-cp config/sway/config $HOME/.config/sway/
-# cp /backup/config/vim/vimrc $HOME/.vim/
-cp config/wallpaper/wp.png $HOME/Pictures/Wallpaper/
-cp config/termite/config $HOME/.config/termite/
+echo "**************************************************${reset}"
+cp ${SHELL_PATH}/config/sway/config $HOME/.config/sway/
+cp ${SHELL_PATH}/config/termite/config $HOME/.config/termite/
 
 
-echo "**************************************************"
-echo "*** GUI Utilties"
-echo "**************************************************"
-sudo pacman --noconfirm -S nnn hunspell-en_GB arc-gtk-theme vlc youtube-dl
-sudo pacman --noconfirm -S playerctl light unzip lm_sensors 
-sudo pacman --noconfirm -S ttf-liberation rofi lxappearance 
+#echo "**************************************************"
+#echo "*** GUI Utilties"
+#echo "**************************************************"
+#sudo pacman --noconfirm -S nnn hunspell-en_GB arc-gtk-theme vlc youtube-dl
+#sudo pacman --noconfirm -S playerctl light unzip lm_sensors 
+#sudo pacman --noconfirm -S ttf-liberation rofi lxappearance 
