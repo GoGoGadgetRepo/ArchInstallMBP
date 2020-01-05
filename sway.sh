@@ -1,6 +1,6 @@
 
 
-sudo pacman -Sy sway wlroots wayland swaylock swayidle waybar ttf-Liberation
-#sudo pacman -Sy xorg-server-xwayland   #Backward Compatiblity with X11
-#sudo pacman -Sy lxapperance  # Customization of GTK+
-sudo pacman -Sy termite rofi
+sudo pacman -Syu sway wlroots wayland swaylock swayidle waybar ttf-Liberation
+#sudo pacman -Syu xorg-server-xwayland   #Backward Compatiblity with X11
+#sudo pacman -Syu lxapperance  # Customization of GTK+
+sudo pacman -Syu termite rofi
