@@ -28,8 +28,10 @@ sed -i '/%wheel ALL=(ALL) NOPASSWD: ALL'/s/^#//g /etc/sudoers
 echo "${green}Making bootable drive and configurations${reset}"
 bootctl --path=/boot install
 cp ${SHELL_PATH}/config/arch.conf /boot/loader/entries/
-#cp lts.conf /boot/loader/entries/
 cp ${SHELL_PATH}/config/loader.conf /boot/loader/
+
+cp ${SHELL_PATH}/config/zen.conf /boot/loader/
+cp ${SHELL_PATH}/config/lts.conf /boot/loader/
 
 echo "${green}Setting the sound card index to PCA${reset}"
 cp ${SHELL_PATH}/config/snd_hda_intel.conf /etc/modprobe.d/
