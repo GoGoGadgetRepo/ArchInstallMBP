@@ -9,7 +9,7 @@ echo "**************************************************${reset}"
 sudo systemctl enable NetworkManager 
 sudo systemctl start NetworkManager
 
-sleep 30
+sleep 15
 
 echo "${green}**************************************************"
 echo "Enabling Wifi based on User Choice"
@@ -78,6 +78,14 @@ echo "*** Copying Configurations"
 echo "**************************************************${reset}"
 cp ${SHELL_PATH}/config/sway/config $HOME/.config/sway/
 cp ${SHELL_PATH}/config/termite/config $HOME/.config/termite/
+
+echo "${green}**************************************************"
+echo "*** Installing Missing Firmware and Update Linux Kernel"
+echo "**************************************************${reset}"
+pikaur --noconfirm -S wd719x-firmware aic94xx-firmware
+mkinitcpio -p linux
+mkinitcpio -p linux-zen
+mkinitcpio -p linux-lts
 
 
 #echo "**************************************************"

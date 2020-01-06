@@ -46,5 +46,10 @@ echo "${green}Password for root${reset}"
 passwd
 
 bootctl set-default "zen"
+bootctl list
+
+echo "${green}The system will shutdown in 15 seconds. Run post_install.sh after restart."
+sleep 15
+exit
 
 
