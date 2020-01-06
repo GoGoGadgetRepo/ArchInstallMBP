@@ -68,9 +68,7 @@ sudo pacman --noconfirm -S alsa-utils pulseaudio-alsa
 echo "${green}**************************************************"
 echo "*** Moving Configurations"
 echo "**************************************************${reset}"
-mkdir -p $HOME/.config/sway/
-mkdir -p $HOME/.config/termite/
-# mkdir -p $HOME/.vim
+#mkdir -p $HOME/.vim
 
 
 echo "${green}**************************************************"
@@ -87,6 +85,7 @@ mkinitcpio -p linux
 mkinitcpio -p linux-zen
 mkinitcpio -p linux-lts
 
+echo "${green}Choose the script for the desktop Enviornment desired.${reset}"
 
 #echo "**************************************************"
 #echo "*** GUI Utilties"

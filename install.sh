@@ -35,6 +35,7 @@ cp ${SHELL_PATH}/config/lts.conf /boot/loader/entries/
 
 echo "${green}Setting the sound card index to PCA${reset}"
 cp ${SHELL_PATH}/config/snd_hda_intel.conf /etc/modprobe.d/
+cp ${SHELL_PATH}/config/i915.conf /etc/modprobe.d/
 cp ${SHELL_PATH}/config/hid_apple.conf /etc/modprobe.d/
 
 sed -i '/Color'/s/^#//g /etc/pacman.conf
