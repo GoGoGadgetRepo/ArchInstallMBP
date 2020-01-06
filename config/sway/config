@@ -21,8 +21,7 @@ set $term termite
 #set $term st
 # Your preferred application launcher
 #set $menu rofi -combi-modi window#drun#ssh -opacity "0" -theme Arc-Dark -show combi -modi combi
-set $menu rofi -combi-modi window#drun#ssh  -opacity "50" -font "Noto Sans 20" -show combi
-
+set $menu wofi --show=drun,run
 
 ### Output configuration
 #

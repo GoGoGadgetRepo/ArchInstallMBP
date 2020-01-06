@@ -30,8 +30,8 @@ bootctl --path=/boot install
 cp ${SHELL_PATH}/config/arch.conf /boot/loader/entries/
 cp ${SHELL_PATH}/config/loader.conf /boot/loader/
 
-cp ${SHELL_PATH}/config/zen.conf /boot/loader/entries/
-cp ${SHELL_PATH}/config/lts.conf /boot/loader/entries/
+#cp ${SHELL_PATH}/config/zen.conf /boot/loader/entries/
+#cp ${SHELL_PATH}/config/lts.conf /boot/loader/entries/
 
 echo "${green}Setting the sound card index to PCA${reset}"
 cp ${SHELL_PATH}/config/snd_hda_intel.conf /etc/modprobe.d/
@@ -46,7 +46,7 @@ passwd masroor
 echo "${green}Password for root${reset}"
 passwd
 
-bootctl set-default "zen"
+bootctl set-default "arch"
 bootctl list
 
 echo "${green}The system will shutdown in 15 seconds. Run post_install.sh after restart."
