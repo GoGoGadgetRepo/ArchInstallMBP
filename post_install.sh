@@ -20,6 +20,13 @@ read SSID
 echo "${green}Please provide the password for ${SSID}${reset}"
 read password
 nmcli dev wifi connect ${SSID} password ${password} 
+
+echo "${green}Installing Reflector to find the best mirror list for downloading Arch Linux${reset}"
+pacman -Sy --noconfirm reflector
+cp /etc/pacman.d/mirrorlist  /etc/pacman.d/mirrorlist.backup
+reflector --verbose --latest 10 --sort rate --save /etc/pacman.d/mirrorlist
+
+
 echo "${green}**************************************************"
 echo "Installing & Enabling Power & Thermal."
 echo "**************************************************${reset}"
@@ -85,6 +92,8 @@ pikaur --noconfirm -S wd719x-firmware aic94xx-firmware
 sudo mkinitcpio -p linux
 #sudo mkinitcpio -p linux-zen
 #sudo mkinitcpio -p linux-lts
+
+
 
 echo "${green}Choose the script for the desktop Enviornment desired.${reset}"
 
