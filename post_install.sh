@@ -75,14 +75,14 @@ sudo pacman --noconfirm -S alsa-utils pulseaudio-alsa
 echo "${green}**************************************************"
 echo "*** Moving Configurations"
 echo "**************************************************${reset}"
-#mkdir -p $HOME/.vim
+mkdir -p $HOME/.vim
 
 
 echo "${green}**************************************************"
 echo "*** Copying Configurations"
 echo "**************************************************${reset}"
 cp ${SHELL_PATH}/config/sway/config $HOME/.config/sway/
-cp ${SHELL_PATH}/config/termite/config $HOME/.config/termite/
+cp -R ${SHELL_PATH}/config/termite $HOME/.config/
 cp ${SHELL_PATH}/config/.profile ${HOME}/
 
 echo "${green}**************************************************"
@@ -93,7 +93,10 @@ sudo mkinitcpio -p linux
 #sudo mkinitcpio -p linux-zen
 #sudo mkinitcpio -p linux-lts
 
-
+#echo "**************************************************"
+#echo "*** Utilties"
+#echo "**************************************************"
+sudo pacman --noconfirm -S zsh man pacman-contrib zsh-syntax-highlighting htop
 
 echo "${green}Choose the script for the desktop Enviornment desired.${reset}"
 

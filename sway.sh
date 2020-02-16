@@ -7,9 +7,9 @@ echo "*** Installing Packages for Sway"
 echo "**************************************************${reset}"
 
 sudo pacman -S sway waybar ttf-liberation 
-sudo pacman -Syu xorg-server-xwayland   #Backward Compatiblity with X11
+#sudo pacman -Syu xorg-server-xwayland   #Backward Compatiblity with X11
 #sudo pacman -Syu lxapperance  # Customization of GTK+
-sudo pacman -S termite mako awesome  awesome-terminal-fonts rofi firefox
+sudo pacman -S termite mako awesome  awesome-terminal-fonts rofi firefox brightnessctl
 
 echo "${green}**************************************************"
 echo "*** Moving Configurations"

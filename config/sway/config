@@ -20,8 +20,7 @@ font pango:Noto Sans 12
 set $term termite
 #set $term st
 # Your preferred application launcher
-#set $menu rofi -combi-modi window#drun#ssh -opacity "0" -theme Arc-Dark -show combi -modi combi
-set $menu wofi --show=drun,run
+set $menu rofi -combi-modi window#drun#ssh -opacity "0" -theme Arc-Dark -show combi -modi combi
 
 ### Output configuration
 #
@@ -239,8 +238,8 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
        
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec light -A 5 # increase screen brightness
-bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec brightnessctl set +5% # increase screen brightness
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%- # decrease screen brightness
 
 # Keyboard brightness controls
 bindsym XF86KbdBrightnessUp exec kbdlight up
