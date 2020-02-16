@@ -20,7 +20,9 @@ font pango:Noto Sans 12
 set $term termite
 #set $term st
 # Your preferred application launcher
-set $menu rofi -combi-modi window#drun#ssh -opacity "0" -theme Arc-Dark -show combi -modi combi
+#set $menu rofi -combi-modi window#drun#ssh -opacity "0" -theme Arc-Dark -show combi -modi combi
+
+set $menu bemenu-run -b
 
 ### Output configuration
 #
@@ -32,7 +34,7 @@ set $menu rofi -combi-modi window#drun#ssh -opacity "0" -theme Arc-Dark -show co
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
-output eDP-1 resolution 2880x1800 position 0,0 scale 1.5
+output eDP-1 resolution 2880x1800 position 0,0 scale 1.5 bg #66545e solid_color
 
 ### Input configuration
 #
