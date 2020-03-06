@@ -44,16 +44,16 @@ sudo cpupower frequency-set -g powersave
 
 sudo systemctl enable fstrim.timer
 
-#echo "${green}**************************************************"
-#echo "Installing pikaur"
-#echo "**************************************************${reset}"
-#export PACK=PIKAUR
-#sudo pacman --noconfirm -S cmake clang
-#mkdir $HOME/$PACK 
-#git clone https://aur.archlinux.org/pikaur.git $HOME/$PACK
-#cd $HOME/$PACK
-#makepkg -fsri
-#cd /backup
+echo "${green}**************************************************"
+echo "Installing pikaur"
+echo "**************************************************${reset}"
+export PACK=PIKAUR
+sudo pacman --noconfirm -S cmake clang
+mkdir $HOME/$PACK 
+git clone https://aur.archlinux.org/pikaur.git $HOME/$PACK
+cd $HOME/$PACK
+makepkg -fsri
+
 
 #echo "${green}**************************************************"
 #echo "Enabling fans for the MacbookPro"
@@ -92,8 +92,8 @@ sudo systemctl enable fstrim.timer
 echo "${green}**************************************************"
 echo "*** Installing Missing Firmware and Update Linux Kernel"
 echo "**************************************************${reset}"
-#pikaur --noconfirm -S wd719x-firmware aic94xx-firmware
-#sudo mkinitcpio -p linux
+pikaur --noconfirm -S wd719x-firmware aic94xx-firmware
+sudo mkinitcpio -p linux
 #sudo mkinitcpio -p linux-zen
 #sudo mkinitcpio -p linux-lts
 

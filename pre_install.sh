@@ -7,6 +7,8 @@ source ${SHELL_PATH}/scripts/global.sh
 echo "${green}Formatting the drivers...${reset}"
 mkfs.vfat -F32 /dev/sda1
 mkfs.ext4 /dev/sda2
+mkswap /dev/sda3
+swapon /dev/sda3
 
 
 echo "${green}Mounting the drives${reset}"
@@ -21,7 +23,7 @@ cp /etc/pacman.d/mirrorlist  /etc/pacman.d/mirrorlist.backup
 reflector --verbose --latest 10 --sort rate --save /etc/pacman.d/mirrorlist
 
 echo "${green}Installing all packages to get sway under wayland working with audio. Some additional useful packages are included also.${reset}"
-pacstrap /mnt base base-devel vim intel-ucode sudo networkmanager wpa_supplicant neofetch git alsa-utils pulseaudio-alsa coreutils linux dosfstools linux-firmware
+pacstrap /mnt base base-devel vim intel-ucode sudo networkmanager wpa_supplicant neofetch git alsa-utils pulseaudio-alsa coreutils linux dosfstools linux-firmware util-linux
 
 echo "${green}Generating fstab for the drives.${reset}"
 genfstab -L -p /mnt >> /mnt/etc/fstab

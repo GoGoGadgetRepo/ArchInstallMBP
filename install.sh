@@ -50,7 +50,7 @@ bootctl set-default "arch"
 bootctl list
 
 echo "${green}The system will shutdown in 15 seconds. Run post_install.sh after restart."
-sleep 15
+sleep 5
 exit
 
 
