@@ -30,14 +30,16 @@ reflector --verbose --latest 10 --sort rate --save /etc/pacman.d/mirrorlist
 echo "${green}**************************************************"
 echo "Installing & Enabling Power & Thermal."
 echo "**************************************************${reset}"
-#sudo pacman --noconfirm -S tlp tlp-sleep cpupower util-linux
-#sudo systemctl enable tlp tlp-sleep
-#sudo systemctl start tlp
+sudo pacman --noconfirm -S tlp 
+sudo systemctl enable tlp 
+sudo systemctl start tlp
+sudo systemctl enable NetworkManager-dispatcher.service
+sudo systemctl start NetworkManager-dispatcher.service
 
 echo "${green}**************************************************"
 echo "Installing and Enabling CPUpower & fstrim."
 echo "**************************************************${reset}"
-sudo pacman --noconfirm -S cpupower util-linux
+sudo pacman --noconfirm -S cpupower 
 sudo systemctl enable cpupower
 sudo systemctl start cpupower
 sudo cpupower frequency-set -g powersave
@@ -56,6 +58,16 @@ makepkg -fsri
 
 
 #echo "${green}**************************************************"
+#echo "Enabling Power Management with laptop-mode-tools"
+#echo "**************************************************${reset}"
+sudo pacman --noconfirm -S acpid
+sudo systemctl enable acpid.service
+sudo systemctl start acpid.service
+pikaur --noconfirm -S laptop-mode-tools
+sudo systemctl enable laptop-mode.service
+sudo systemctl start laptop-mode.service
+
+#echo "${green}**************************************************"
 #echo "Enabling fans for the MacbookPro"
 #echo "**************************************************${reset}"
 #pikaur --noconfirm -S mbpfan-git kbdlight
@@ -72,22 +84,11 @@ makepkg -fsri
 #sudo systemctl start thermald
 
 #echo "${green}**************************************************"
-#echo "Setting Audio"
-#echo "**************************************************${reset}"
-#sudo pacman --noconfirm -S alsa-utils pulseaudio-alsa
-
-#echo "${green}**************************************************"
-#echo "*** Moving Configurations"
-#echo "**************************************************${reset}"
-#mkdir -p $HOME/.vim
-
-
-#echo "${green}**************************************************"
 #echo "*** Copying Configurations"
 #echo "**************************************************${reset}"
 #cp ${SHELL_PATH}/config/sway/config $HOME/.config/sway/
 #cp -R ${SHELL_PATH}/config/termite $HOME/.config/
-#cp ${SHELL_PATH}/config/.profile ${HOME}/
+#cp ${SHELL_PATH}/config/profile ${HOME}/
 
 echo "${green}**************************************************"
 echo "*** Installing Missing Firmware and Update Linux Kernel"
