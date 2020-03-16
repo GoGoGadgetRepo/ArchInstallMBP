@@ -26,13 +26,12 @@ pacman -Sy --noconfirm reflector
 cp /etc/pacman.d/mirrorlist  /etc/pacman.d/mirrorlist.backup
 reflector --verbose --latest 10 --sort rate --save /etc/pacman.d/mirrorlist
 
-
 echo "${green}**************************************************"
 echo "Installing & Enabling Power & Thermal."
 echo "**************************************************${reset}"
-sudo pacman --noconfirm -S tlp 
-sudo systemctl enable tlp 
-sudo systemctl start tlp
+#sudo pacman --noconfirm -S tlp acpid
+#sudo systemctl enable tlp 
+#sudo systemctl start tlp
 sudo systemctl enable NetworkManager-dispatcher.service
 sudo systemctl start NetworkManager-dispatcher.service
 
