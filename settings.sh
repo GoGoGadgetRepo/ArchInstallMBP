@@ -17,3 +17,5 @@ cp ${SHELL_PATH}/config/profile $HOME/.config/profile
 
 mkdir -p $HOME/.config/zsh
 cp ${SHELL_PATH}/config/zsh/.zshrc ${HOME}/.config/zsh/
+
+sudo chsh -s /bin/zsh masroor

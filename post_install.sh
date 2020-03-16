@@ -27,11 +27,8 @@ cp /etc/pacman.d/mirrorlist  /etc/pacman.d/mirrorlist.backup
 reflector --verbose --latest 10 --sort rate --save /etc/pacman.d/mirrorlist
 
 echo "${green}**************************************************"
-echo "Installing & Enabling Power & Thermal."
+echo "Enabling Network Manager"
 echo "**************************************************${reset}"
-#sudo pacman --noconfirm -S tlp acpid
-#sudo systemctl enable tlp 
-#sudo systemctl start tlp
 sudo systemctl enable NetworkManager-dispatcher.service
 sudo systemctl start NetworkManager-dispatcher.service
 
@@ -82,17 +79,11 @@ sudo systemctl start laptop-mode.service
 #sudo systemctl enable thermald
 #sudo systemctl start thermald
 
-#echo "${green}**************************************************"
-#echo "*** Copying Configurations"
-#echo "**************************************************${reset}"
-#cp ${SHELL_PATH}/config/sway/config $HOME/.config/sway/
-#cp -R ${SHELL_PATH}/config/termite $HOME/.config/
-#cp ${SHELL_PATH}/config/profile ${HOME}/
-
 echo "${green}**************************************************"
 echo "*** Installing Missing Firmware and Update Linux Kernel"
 echo "**************************************************${reset}"
-pikaur --noconfirm -S wd719x-firmware aic94xx-firmware
+sudo pacman --noconfirm -S linux-headers
+pikaur --noconfirm -S wd719x-firmware aic94xx-firmware bcwc-pcie-git
 sudo mkinitcpio -p linux
 #sudo mkinitcpio -p linux-zen
 #sudo mkinitcpio -p linux-lts
@@ -102,11 +93,12 @@ sudo mkinitcpio -p linux
 #echo "**************************************************"
 sudo pacman --noconfirm -S zsh man pacman-contrib zsh-syntax-highlighting htop
 
-echo "${green}Choose the script for the desktop Enviornment desired.${reset}"
+echo "${green}Applying custom settings.${reset}"
+sh settings.sh
 
-#echo "**************************************************"
-#echo "*** GUI Utilties"
-#echo "**************************************************"
-#sudo pacman --noconfirm -S nnn hunspell-en_GB arc-gtk-theme vlc youtube-dl
-#sudo pacman --noconfirm -S playerctl light unzip lm_sensors 
-#sudo pacman --noconfirm -S ttf-liberation rofi lxappearance 
+echo "**************************************************"
+echo "*** GUI Utilties"
+echo "**************************************************"
+sudo pacman --noconfirm -S nnn hunspell-en_GB arc-gtk-theme vlc youtube-dl
+sudo pacman --noconfirm -S unzip lm_sensors 
+sudo pacman --noconfirm -S ttf-liberation lxappearance 
