@@ -46,6 +46,8 @@ passwd masroor
 echo "${green}Password for root${reset}"
 passwd
 
+usermod -aG video masroor
+
 bootctl set-default "arch"
 bootctl list
 

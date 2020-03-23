@@ -9,7 +9,9 @@ echo "**************************************************${reset}"
 sudo pacman -S sway waybar ttf-liberation 
 sudo pacman -Syu xorg-server-xwayland   #Backward Compatiblity with X11
 #sudo pacman -Syu lxapperance  # Customization of GTK+
-sudo pacman -S termite mako awesome awesome-terminal-fonts firefox brightnessctl
+sudo pacman -S alacritty mako awesome awesome-terminal-fonts firefox brightnessctl
+
+sudo pikaur -S wofi
 
 echo "${green}**************************************************"
 echo "*** Moving Configurations"

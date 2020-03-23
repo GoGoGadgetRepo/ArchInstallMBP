@@ -17,12 +17,10 @@ set $right l
 font pango:Noto Sans 12
 
 # Your preferred terminal emulator
-set $term termite
+set $term alacritty
 #set $term st
 # Your preferred application launcher
-#set $menu rofi -combi-modi window#drun#ssh -opacity "0" -theme Arc-Dark -show combi -modi combi
-
-set $menu bemenu-run -b
+set $menu wofi --show=run
 
 ### Output configuration
 #
@@ -34,7 +32,7 @@ set $menu bemenu-run -b
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
-output eDP-1 resolution 2880x1800 position 0,0 scale 1.5 bg #66545e solid_color
+output eDP-1 resolution 2880x1800 position 0,0 scale 1.5 bg #000000 solid_color
 
 ### Input configuration
 #
@@ -66,15 +64,12 @@ exec swayidle \
 #
 # Basics:
 #
-    # start a terminal
-    bindsym $mod+Return exec $term
-
-    # kill focused window
-    bindsym $mod+q kill
-
-    # start your launcher
-    bindsym $mod+space exec $menu
-
+    bindsym $mod+Return exec $term	# start a terminal
+    bindsym $mod+q kill			# kill focused window
+    bindsym $mod+space exec $menu	# start your launcher
+    bindsym $mod+Shift+r reload		# reload the configuration file
+    bindsym $mod+Shift+e exit		# exit sway (logs you out of your wayland session)
+    
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
     # Despite the name, also works for non-floating windows.
@@ -82,11 +77,6 @@ exec swayidle \
     # mouse button for dragging.
     floating_modifier $mod normal
 
-    # reload the configuration file
-    bindsym $mod+Shift+r reload
-
-    # exit sway (logs you out of your wayland session)
-    bindsym $mod+Shift+e exit
 #
 # Moving around:
 #
