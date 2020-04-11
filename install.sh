@@ -3,29 +3,29 @@
 SHELL_PATH=$(readlink -f $0 | xargs dirname)
 source ${SHELL_PATH}/scripts/global.sh
 
-echo "${green}Setting Time zone and Time${reset}"
+info "Setting Time zone and Time"
 ln -sf /usr/share/zoneinfo/Europe/London /etc/localtime
 hwclock --systohc --utc
 
-echo "${green}Setting system wide language${reset}"
+info "Setting system wide language"
 sed -i '/en_GB.UTF-8'/s/^#//g /etc/locale.gen
 locale-gen
 cp ${SHELL_PATH}/config/locale.conf /etc/
 
-echo "${green}Setting font for vconsole${reset}"
+info "Setting font for vconsole"
 cp ${SHELL_PATH}/config/vconsole.conf /etc/
 
-echo "${green}Setting machine name.${reset}"
+info "Setting machine name."
 echo Freedom > /etc/hostname
 
-echo "${green}Copying the modules to /etc/${reset}"
+info "Copying the modules to /etc/"
 cp ${SHELL_PATH}/config/modules /etc/
 
-echo "${green}Giving user wheel access${reset}"
+info "Giving user wheel access"
 sed -i '/%wheel ALL=(ALL) NOPASSWD: ALL'/s/^#//g /etc/sudoers
 
 # systemd-boot Configurations
-echo "${green}Making bootable drive and configurations${reset}"
+info "Making bootable drive and configurations"
 bootctl --path=/boot install
 cp ${SHELL_PATH}/config/arch.conf /boot/loader/entries/
 cp ${SHELL_PATH}/config/loader.conf /boot/loader/
@@ -33,7 +33,7 @@ cp ${SHELL_PATH}/config/loader.conf /boot/loader/
 #cp ${SHELL_PATH}/config/zen.conf /boot/loader/entries/
 #cp ${SHELL_PATH}/config/lts.conf /boot/loader/entries/
 
-echo "${green}Setting the sound card index to PCA${reset}"
+info "Setting the sound card index to PCA"
 cp ${SHELL_PATH}/config/snd_hda_intel.conf /etc/modprobe.d/
 cp ${SHELL_PATH}/config/i915.conf /etc/modprobe.d/
 cp ${SHELL_PATH}/config/hid_apple.conf /etc/modprobe.d/
@@ -41,9 +41,9 @@ cp ${SHELL_PATH}/config/hid_apple.conf /etc/modprobe.d/
 sed -i '/Color'/s/^#//g /etc/pacman.conf
 
 useradd -m -g users -G wheel -s /bin/bash masroor
-echo "${green}Password for the user masroor${reset}"
+info "Password for the user masroor"
 passwd masroor
-echo "${green}Password for root${reset}"
+info "Password for root"
 passwd
 
 usermod -aG video masroor
@@ -51,7 +51,7 @@ usermod -aG video masroor
 bootctl set-default "arch"
 bootctl list
 
-echo "${green}The system will shutdown in 15 seconds. Run post_install.sh after restart."
+info "The system will shutdown in 15 seconds. Run post_install.sh after restart."
 sleep 5
 exit
 
