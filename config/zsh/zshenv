@@ -1,10 +1,15 @@
 if [[ -z "$XDG_CONFIG_HOME" ]]
 then
-	export XDG_CONFIG_HOME="$HOME/.config/"
+	export XDG_CONFIG_HOME="$HOME/.config"
 fi
 
 if [[ -d "$XDG_CONFIG_HOME/zsh" ]]
 then
 	export ZDOTDIR="$XDG_CONFIG_HOME/zsh/"
+fi
+
+if [[ -d "/tmp" ]]
+then
+	export XDG_CACHE_HOME="/tmp"
 fi
 

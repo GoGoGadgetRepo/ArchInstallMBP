@@ -10,42 +10,29 @@
 set $mod Mod4
 # Home row direction keys, like vim
 set $left h
-set $down j
+set $down j 
 set $up k
 set $right l
+# Font for Windows Title
+font pango:Noto Sans 12
+
 # Your preferred terminal emulator
 set $term kitty
+#set $term st
 # Your preferred application launcher
-# Note: pass the final command to swaymsg so that the resulting window can be opened
-# on the original workspace that the command was run on.
-#set $menu dmenu_path | dmenu | xargs swaymsg exec --
-set $menu wofi --show=drun
+set $menu wofi --show=run
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-# output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+#output * bg $HOME/Pictures/Wallpaper/wp.png  fill 
 #
 # Example configuration:
 #
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
-output eDP-1 resolution 2880x1800 scale 1.5 bg #000000 solid_color
-
-### Idle configuration
-#
-# Example configuration:
-#
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' \
-#               resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
+output eDP-1 resolution 2880x1800 position 0,0 scale 1.5 bg #000000 solid_color
 
 ### Input configuration
 #
@@ -67,14 +54,22 @@ input "1452:628:Apple_Inc._Apple_Internal_Keyboard_/_Trackpad" {
 	scroll_method	two_finger
 }
 
+exec swayidle \
+	timeout 300  'swaylock -c 000000' \
+	timeout 600  'swaymsg "output * dpms off"' \
+	  resume 'swaymsg "output * dpms on"' \
+	before-sleep  'swaylock -c 000000'
+
 ### Key bindings
 #
 # Basics:
 #
-    bindsym $mod+Return exec $term	# Start a terminal
-    bindsym $mod+Shift+q kill		# Kill focused window
-    bindsym $mod+space exec $menu	# Start your launcher
-
+    bindsym $mod+Return exec $term	# start a terminal
+    bindsym $mod+q kill			# kill focused window
+    bindsym $mod+space exec $menu	# start your launcher
+    bindsym $mod+Shift+r reload		# reload the configuration file
+    bindsym $mod+Shift+e exit		# exit sway (logs you out of your wayland session)
+    
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
     # Despite the name, also works for non-floating windows.
@@ -82,11 +77,6 @@ input "1452:628:Apple_Inc._Apple_Internal_Keyboard_/_Trackpad" {
     # mouse button for dragging.
     floating_modifier $mod normal
 
-    # Reload the configuration file
-    bindsym $mod+Shift+c reload
-
-    # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 #
 # Moving around:
 #
@@ -95,18 +85,18 @@ input "1452:628:Apple_Inc._Apple_Internal_Keyboard_/_Trackpad" {
     bindsym $mod+$down focus down
     bindsym $mod+$up focus up
     bindsym $mod+$right focus right
-    # Or use $mod+[up|down|left|right]
+    # or use $mod+[up|down|left|right]
     bindsym $mod+Left focus left
     bindsym $mod+Down focus down
     bindsym $mod+Up focus up
     bindsym $mod+Right focus right
 
-    # Move the focused window with the same, but add Shift
+    # _move_ the focused window with the same, but add Shift
     bindsym $mod+Shift+$left move left
     bindsym $mod+Shift+$down move down
     bindsym $mod+Shift+$up move up
     bindsym $mod+Shift+$right move right
-    # Ditto, with arrow keys
+    # ditto, with arrow keys
     bindsym $mod+Shift+Left move left
     bindsym $mod+Shift+Down move down
     bindsym $mod+Shift+Up move up
@@ -114,7 +104,7 @@ input "1452:628:Apple_Inc._Apple_Internal_Keyboard_/_Trackpad" {
 #
 # Workspaces:
 #
-    # Switch to workspace
+    # switch to workspace
     bindsym $mod+1 workspace 1
     bindsym $mod+2 workspace 2
     bindsym $mod+3 workspace 3
@@ -125,7 +115,7 @@ input "1452:628:Apple_Inc._Apple_Internal_Keyboard_/_Trackpad" {
     bindsym $mod+8 workspace 8
     bindsym $mod+9 workspace 9
     bindsym $mod+0 workspace 10
-    # Move focused container to workspace
+    # move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace 1
     bindsym $mod+Shift+2 move container to workspace 2
     bindsym $mod+Shift+3 move container to workspace 3
@@ -159,9 +149,9 @@ input "1452:628:Apple_Inc._Apple_Internal_Keyboard_/_Trackpad" {
     bindsym $mod+Shift+space floating toggle
 
     # Swap focus between the tiling area and the floating area
-    # bindsym $mod+space focus mode_toggle
+    #bindsym $mod+space focus mode_toggle
 
-    # Move focus to the parent container
+    # move focus to the parent container
     bindsym $mod+a focus parent
 #
 # Scratchpad:
@@ -183,18 +173,18 @@ mode "resize" {
     # right will grow the containers width
     # up will shrink the containers height
     # down will grow the containers height
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
-    bindsym $right resize grow width 10px
+    bindsym $left resize shrink width 10 px or 10 ppt
+    bindsym $down resize grow height 10 px or 10 ppt
+    bindsym $up resize shrink height 10 px or 10 ppt
+    bindsym $right resize grow width 10 px or 10 ppt
 
-    # Ditto, with arrow keys
-    bindsym Left resize shrink width 10px
-    bindsym Down resize grow height 10px
-    bindsym Up resize shrink height 10px
-    bindsym Right resize grow width 10px
+    # ditto, with arrow keys
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
 
-    # Return to default mode
+    # return to default mode
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
@@ -212,19 +202,21 @@ title_align		center
 # Read `man 5 sway-bar` for more information about this section.
 #bar {
 #    position top
-#
-#    # When the status_command prints a new line to stdout, swaybar updates.
-#    # The default just shows the current date and time.
-#    status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
-#
+#    output eDP-1
+
+#    status_command while date +'%d-%B-%Y %l:%M:%S %p'; do sleep 1; done
+#    status_command i3status -c ~/.config/i3status/config
+#     status_command waybar
+
 #    colors {
-#        statusline #ffffff
-#        background #323232
-#        inactive_workspace #32323200 #32323200 #5c5c5c
+        #statusline #000000
+        #background #87A96B
+        #inactive_workspace #32323200 #32323200 #5c5c5c
 #    }
 #}
 
 exec --no-startup-id waybar
+#xwayland disable  # Disabling X Org
 
 # PulseAudio key bindings
 bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 10%+ unmute
@@ -256,6 +248,35 @@ default_border pixel 3
 focus_follows_mouse yes
 smart_borders on
 smart_gaps on
+
+# Solarized
+#
+set $black      #000000
+set $white      #FFFFFF
+set $gray1      #1a1a1a
+set $gray2      #292b2e
+set $gray3      #5f676a
+
+set $base03     #002b36
+set $base02     #073642
+set $base01     #586e75
+set $base00     #657b83
+set $base0      #839496
+set $base1      #93a1a1
+set $base2      #eee8d5
+set $base3      #fdf6e3
+set $yellow     #b58900
+set $orange     #cb4b16
+set $red        #dc322f
+set $magenta    #d33682
+set $violet     #6c71c4
+set $blue       #268bd2
+set $cyan       #2aa198
+set $green      #859900
+
+# class                 border  backgr. text    indica. child_border
+client.focused          $red    $gray3  $white  $red    $red
+client.unfocused        $base00 #222222 #888888 #292d2e #222222
 
 
 

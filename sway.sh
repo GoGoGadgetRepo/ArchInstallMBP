@@ -9,7 +9,7 @@ echo "**************************************************${reset}"
 sudo pacman -S sway waybar ttf-liberation 
 sudo pacman -Syu xorg-server-xwayland   #Backward Compatiblity with X11
 #sudo pacman -Syu lxapperance  # Customization of GTK+
-sudo pacman -S alacritty mako awesome awesome-terminal-fonts firefox brightnessctl
+sudo pacman -S kitty mako awesome awesome-terminal-fonts firefox brightnessctl
 
 sudo pikaur -S wofi
 
@@ -20,3 +20,4 @@ echo " 2 - Termite (Terminal Emulator)"
 echo "**************************************************${reset}"
 mkdir -p ${HOME}/.config/sway
 cp ${SHELL_PATH}/config/sway/config ${HOME}/.config/sway/
+sudo echo "MOZ_ENABLE_WAYLAND=1" >> /etc/environment   

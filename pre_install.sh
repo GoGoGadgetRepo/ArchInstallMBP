@@ -23,10 +23,14 @@ cp /etc/pacman.d/mirrorlist  /etc/pacman.d/mirrorlist.backup
 reflector --verbose --latest 10 --sort rate --save /etc/pacman.d/mirrorlist
 
 echo "${green}Installing all packages to get sway under wayland working with audio. Some additional useful packages are included also.${reset}"
-pacstrap /mnt base base-devel vim intel-ucode sudo networkmanager wpa_supplicant neofetch git alsa-utils pulseaudio-alsa coreutils linux dosfstools linux-firmware util-linux
+pacstrap /mnt base base-devel vim intel-ucode sudo networkmanager wpa_supplicant neofetch git alsa-utils pulseaudio-alsa coreutils linux dosfstools linux-firmware util-linux exa
 
 echo "${green}Generating fstab for the drives.${reset}"
 genfstab -L -p /mnt >> /mnt/etc/fstab
+
+echo "${green}Creating RAM Disk.${reset}"
+echo "tmpfs	/tmp	tmpfs	rw,nodev,nosuid,size=4G	0 0" >> /etc/fstab
+
 
 # Copying install scripts to new location
 cd /mnt 

@@ -1,6 +1,7 @@
 
-alias ls='ls --color=always'
-alias l='ls -l'
+#alias ls='ls --color=always'
+alias ls='exa'
+alias l='ls -a'
 alias ll='ls -la'
 alias v='vim'
 alias sv='sudo vim'
