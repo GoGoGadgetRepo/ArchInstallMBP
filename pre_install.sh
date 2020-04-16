@@ -10,8 +10,7 @@ mkfs.ext4 /dev/sda2
 mkswap /dev/sda3
 swapon /dev/sda3
 
-
-info "Mounting the drives"
+info "Mounting the drives 1. Root, 2. Boot "
 mount /dev/sda2 /mnt
 mkdir /mnt/boot
 mount /dev/sda1 /mnt/boot
@@ -23,7 +22,7 @@ cp /etc/pacman.d/mirrorlist  /etc/pacman.d/mirrorlist.backup
 reflector --verbose --latest 10 --sort rate --save /etc/pacman.d/mirrorlist
 
 info "Installing all packages to get sway under wayland working with audio. Some additional useful packages are included also."
-pacstrap /mnt base base-devel vim intel-ucode sudo networkmanager wpa_supplicant neofetch git alsa-utils pulseaudio-alsa coreutils linux dosfstools linux-firmware util-linux exa
+pacstrap /mnt base base-devel vim intel-ucode sudo networkmanager wpa_supplicant git alsa-utils pulseaudio-alsa coreutils dosfstools util-linux exa linux linux-firmware linux-headers linux-zen linux-zen-headers
 
 info "Generating fstab for the drives."
 genfstab -L -p /mnt >> /mnt/etc/fstab

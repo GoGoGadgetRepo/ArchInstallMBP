@@ -10,16 +10,16 @@ hwclock --systohc --utc
 info "Setting system wide language"
 sed -i '/en_GB.UTF-8'/s/^#//g /etc/locale.gen
 locale-gen
-cp ${SHELL_PATH}/config/locale.conf /etc/
+cp ${SHELL_PATH}/config/etc/locale.conf /etc/
 
 info "Setting font for vconsole"
-cp ${SHELL_PATH}/config/vconsole.conf /etc/
+cp ${SHELL_PATH}/config/etc/vconsole.conf /etc/
 
 info "Setting machine name."
 echo Freedom > /etc/hostname
 
 info "Copying the modules to /etc/"
-cp ${SHELL_PATH}/config/modules /etc/
+cp ${SHELL_PATH}/config/etc/modules /etc/
 
 info "Giving user wheel access"
 sed -i '/%wheel ALL=(ALL) NOPASSWD: ALL'/s/^#//g /etc/sudoers
@@ -27,31 +27,33 @@ sed -i '/%wheel ALL=(ALL) NOPASSWD: ALL'/s/^#//g /etc/sudoers
 # systemd-boot Configurations
 info "Making bootable drive and configurations"
 bootctl --path=/boot install
-cp ${SHELL_PATH}/config/arch.conf /boot/loader/entries/
-cp ${SHELL_PATH}/config/loader.conf /boot/loader/
-
-#cp ${SHELL_PATH}/config/zen.conf /boot/loader/entries/
-#cp ${SHELL_PATH}/config/lts.conf /boot/loader/entries/
+cp ${SHELL_PATH}/config/boot/arch.conf /boot/loader/entries/
+cp ${SHELL_PATH}/config/boot/loader.conf /boot/loader/
+cp ${SHELL_PATH}/config/boot/zen.conf /boot/loader/entries/
+cp ${SHELL_PATH}/config/boot/lts.conf /boot/loader/entries/
 
 info "Setting the sound card index to PCA"
-cp ${SHELL_PATH}/config/snd_hda_intel.conf /etc/modprobe.d/
-cp ${SHELL_PATH}/config/i915.conf /etc/modprobe.d/
-cp ${SHELL_PATH}/config/hid_apple.conf /etc/modprobe.d/
+cp ${SHELL_PATH}/config/modprobe/snd_hda_intel.conf /etc/modprobe.d/
+cp ${SHELL_PATH}/config/modprobe/i915.conf /etc/modprobe.d/
+cp ${SHELL_PATH}/config/modprobe/hid_apple.conf /etc/modprobe.d/
 
 sed -i '/Color'/s/^#//g /etc/pacman.conf
 
-useradd -m -g users -G wheel -s /bin/bash masroor
-info "Password for the user masroor"
-passwd masroor
+info "Type the the username for this installation:"
+read USERNAME
+useradd -m -g users -G wheel -s /bin/bash ${USERNAME}
+info "Password for the user ${USERNAME}"
+passwd ${USERNAME}
 info "Password for root"
 passwd
 
-usermod -aG video masroor
+info "Adding the ${USERNAME} to the video group."
+usermod -aG video ${USERNAME}
 
 bootctl set-default "arch"
 bootctl list
 
-info "The system will shutdown in 15 seconds. Run post_install.sh after restart."
+info "The system will shutdown in 5 seconds. Run post_install.sh after restart."
 sleep 5
 exit
 

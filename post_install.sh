@@ -31,15 +31,15 @@ sudo pacman --noconfirm -S cpupower
 sudo systemctl enable cpupower
 sudo systemctl start cpupower
 sudo cpupower frequency-set -g powersave
-
 sudo systemctl enable fstrim.timer
+sudo systemctl start fstrim.timer
 
 info "Installing pikaur"
 export PACK=PIKAUR
 sudo pacman --noconfirm -S cmake clang
-mkdir $HOME/$PACK 
-git clone https://aur.archlinux.org/pikaur.git $HOME/$PACK
-cd $HOME/$PACK
+mkdir /tmp/$PACK 
+git clone https://aur.archlinux.org/pikaur.git /tmp/$PACK
+cd /tmp/$PACK
 makepkg -fsri
 
 
@@ -66,10 +66,9 @@ sudo systemctl start laptop-mode.service
 
 
 info "Installing Missing Firmware and Update Linux Kernel"
-sudo pacman --noconfirm -S linux-headers
 pikaur --noconfirm -S wd719x-firmware aic94xx-firmware bcwc-pcie-git
 sudo mkinitcpio -p linux
-#sudo mkinitcpio -p linux-zen
+sudo mkinitcpio -p linux-zen
 #sudo mkinitcpio -p linux-lts
 
 info "Installing Utilties"
@@ -78,9 +77,6 @@ sudo pacman --noconfirm -S zsh man pacman-contrib zsh-syntax-highlighting htop n
 info "Applying custom settings."
 sh settings.sh
 
-echo "**************************************************"
-echo "*** GUI Utilties"
-echo "**************************************************"
 #sudo pacman --noconfirm -S nnn hunspell-en_GB arc-gtk-theme vlc youtube-dl
 #sudo pacman --noconfirm -S unzip lm_sensors 
 #sudo pacman --noconfirm -S ttf-liberation lxappearance 
