@@ -2,22 +2,24 @@
 # Defining the shell path and global variables 
 SHELL_PATH=$(readlink -f $0 | xargs dirname)
 
-echo "${green}**************************************************"
-echo "*** Installing Packages for Sway"
-echo "**************************************************${reset}"
+info "Installing Packages for Sway"
 
-sudo pacman -S sway waybar ttf-liberation 
-sudo pacman -Syu xorg-server-xwayland   #Backward Compatiblity with X11
+sudo pacman --noconfirm -Syu sway waybar ttf-liberation 
+#sudo pacman -Syu xorg-server-xwayland   #Backward Compatiblity with X11
 #sudo pacman -Syu lxapperance  # Customization of GTK+
-sudo pacman -S kitty mako awesome awesome-terminal-fonts firefox brightnessctl
+sudo pacman --noconfirm -Syu kitty mako awesome awesome-terminal-fonts firefox brightnessctl
 
-sudo pikaur -S wofi
+info "Setting pacakges that enable wayland GUI"
+sudo pacman --noconfirm -S qt5-wayland glfw-wayland glew-wayland clutter
+info "Installing wayland compatible launcher"
+sudo pikaur --noconfirm -S wofi
 
-echo "${green}**************************************************"
-echo "*** Moving Configurations"
-echo " 1 - Sway"
-echo " 2 - Termite (Terminal Emulator)"
-echo "**************************************************${reset}"
+info "Moving Configurations"
 mkdir -p ${HOME}/.config/sway
-cp ${SHELL_PATH}/config/sway/config ${HOME}/.config/sway/
-sudo echo "MOZ_ENABLE_WAYLAND=1" >> /etc/environment   
+ln -s ${SHELL_PATH}/config/sway/config ${HOME}/.config/sway/config
+
+mkdir -p ${HOME}/.config/waybar
+ln -s ${SHELL_PATH}/config/waybar/config ${HOME}/.config/waybar/config
+ln -s ${SHELL_PATH}/config/waybar/style.css ${HOME}/.config/waybar/style.css
+
+#sudo echo "MOZ_ENABLE_WAYLAND=1" >> /etc/environment   

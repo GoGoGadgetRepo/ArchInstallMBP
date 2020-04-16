@@ -21,6 +21,9 @@ echo Freedom > /etc/hostname
 info "Copying the modules to /etc/"
 cp ${SHELL_PATH}/config/etc/modules /etc/
 
+info "Setting environment variables for Wayland"
+cp ${SHELL_PATH}//config/etc/environment /etc/
+
 info "Giving user wheel access"
 sed -i '/%wheel ALL=(ALL) NOPASSWD: ALL'/s/^#//g /etc/sudoers
 
