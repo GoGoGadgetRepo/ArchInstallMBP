@@ -52,4 +52,4 @@ man() {
 }
 
 
-#source $XDG_CONFIG_HOME/sway/autoStart
+source $XDG_CONFIG_HOME/sway/autoStart

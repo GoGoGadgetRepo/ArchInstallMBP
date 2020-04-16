@@ -5,8 +5,8 @@ SHELL_PATH=$(readlink -f $0 | xargs dirname)
 info "Installing Packages for Sway"
 
 sudo pacman --noconfirm -Syu sway waybar ttf-liberation 
-#sudo pacman -Syu xorg-server-xwayland   #Backward Compatiblity with X11
-#sudo pacman -Syu lxapperance  # Customization of GTK+
+sudo pacman -Syu xorg-server-xwayland   #Backward Compatiblity with X11
+sudo pacman -Syu lxapperance  # Customization of GTK+
 sudo pacman --noconfirm -Syu kitty mako awesome awesome-terminal-fonts firefox brightnessctl
 
 info "Setting pacakges that enable wayland GUI"
