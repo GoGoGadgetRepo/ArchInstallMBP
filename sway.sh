@@ -17,6 +17,7 @@ sudo pikaur --noconfirm -S wofi
 info "Moving Configurations"
 mkdir -p ${HOME}/.config/sway
 ln -s ${SHELL_PATH}/config/sway/config ${HOME}/.config/sway/config
+ln -s ${SHELL_PATH}/config/sway/autoStart  ${HOME}/.config/sway/autoStart
 
 mkdir -p ${HOME}/.config/waybar
 ln -s ${SHELL_PATH}/config/waybar/config ${HOME}/.config/waybar/config

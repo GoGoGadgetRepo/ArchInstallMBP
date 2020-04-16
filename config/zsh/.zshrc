@@ -2,17 +2,25 @@
 source $XDG_CONFIG_HOME/profile
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-autoload -Uz compinit promptinit colors zsh/terminfo
+autoload -Uz compinit promptinit colors zsh/terminfo vcs_info
 compinit
 promptinit
 colors
+precmd() { vcs_info }
+
+zstyle ':completion::complete:*' gain-privileges 1
+zstyle ':vcs_info:git:*' formats '%b '
 
 setopt COMPLETE_ALIASES
 setopt correctall
 setopt hist_ignore_all_dups
 setopt autocd
+setopt PROMPT_SUBST
 
-zstyle ':completion::complete:*' gain-privileges 1
+
+PROMPT='${PWD/#$HOME/~} > '
+RPROMPT=\$vcs_info_msg_0_
+
 
 #---------------------------------------------------
 # History Stuff
@@ -43,3 +51,5 @@ man() {
     man "$@"
 }
 
+
+#source $XDG_CONFIG_HOME/sway/autoStart
