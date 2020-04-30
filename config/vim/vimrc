@@ -1,0 +1,32 @@
+
+" Mode Settings for Cursor
+" 1 -> blinking block
+" 2 -> solid block
+" 3 -> blinking underscore
+" 4 -> solid underscore
+" 5 -> blinking vertical bar
+" 6 -> solid vertical block
+let &t_SI.="\e[5 q" 	"SI = INSERT mode
+let &t_SR.="\e[3 q"	"SR = REPLACE mode
+let &t_EI.="\e[1 q"	"EI = NORMAL mode
+
+set nocompatible		" No Backward compatibility
+" XDG Compliance
+set viminfo+='1000,n$XDG_CACHE_HOME/viminfo
+set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
+
+" Syntax highlighting
+filetype plugin on	
+syntax on
+
+filetype indent on		" Indentation
+set mouse=a			" Enabling mouse
+set nu rnu 			" Line numbering
+set cursorline			" Highlight current line
+setlocal spell spelllang=en_gb	" British Dictionary
+set spell 
+set clipboard=unnamedplus
+
+" File type specific 
+autocmd BufNewFile,BufRead *.md set filetype=markdown
+

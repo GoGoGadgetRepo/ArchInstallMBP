@@ -227,8 +227,8 @@ title_align		center
 exec --no-startup-id waybar
 
 # PulseAudio key bindings
-bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 10%+ unmute
-bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 10%- unmute
+bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+ unmute
+bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%- unmute
 bindsym XF86AudioMute exec amixer -D pulse sset Master toggle
 
 # Media player key bindings (you need playerctl for this to work.)

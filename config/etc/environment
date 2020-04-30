@@ -3,7 +3,11 @@
 #
 # Syntax: simple "KEY=VAL" pairs on separate lines
 #
+XDG_CACHE_HOME=/tmp
+
 MOZ_ENABLE_WAYLAND=1
 QT_QPA_PLATFORM=wayland
 CLUTTER_BACKEND=wayland
 SDL_VIDEODRIVER=wayland
+
+GST_VAAPI_ALL_DRIVERS=1

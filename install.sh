@@ -39,6 +39,7 @@ info "Setting the sound card index to PCA"
 cp ${SHELL_PATH}/config/modprobe/snd_hda_intel.conf /etc/modprobe.d/
 cp ${SHELL_PATH}/config/modprobe/i915.conf /etc/modprobe.d/
 cp ${SHELL_PATH}/config/modprobe/hid_apple.conf /etc/modprobe.d/
+cp ${SHELL_PATH}/config/modprobe/xhci_reset_on_suspend.conf /etc/modprobe.d/
 
 sed -i '/Color'/s/^#//g /etc/pacman.conf
 
@@ -51,9 +52,14 @@ info "Password for root"
 passwd
 
 info "Adding the ${USERNAME} to the video group."
+usermod -aG mail ${USERNAME}
+usermod -aG ftp ${USERNAME}
+usermod -aG audio ${USERNAME}
+usermod -aG git ${USERNAME}
+usermod -aG adm ${USERNAME}
 usermod -aG video ${USERNAME}
 
-bootctl set-default "arch"
+bootctl set-default arch.conf
 bootctl list
 
 info "The system will shutdown in 5 seconds. Run post_install.sh after restart."

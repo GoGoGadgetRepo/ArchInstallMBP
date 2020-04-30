@@ -1,10 +1,47 @@
+################################################################################
+# Environment Variables
+################################################################################
+export EDITOR=nvim
 
+################################################################################
+# Short cuts
+################################################################################
 #alias ls='ls --color=always'
 alias ls='exa'
 alias l='ls -a'
 alias ll='ls -la'
+alias vim='nvim'
+alias vg='nvim-qt'
 alias v='vim'
 alias sv='sudo vim'
 alias sp='sudo pacman'
 alias c='clear'
+alias grep='grep --color=always'
+
+# Git Customization
+alias gs='git status'
+
+
+# nnn Customization
+export NNN_COLORS="2136" 
+
+################################################################################
+# Useful Shell functions 
+################################################################################
+# -- A simple function to display man pages in PDF
+pman() {
+	man -t $1 | ps2pdf - | zathura - &> /dev/null & disown 
+}
+# -- coloured manuals
+man() {
+  env \
+    LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+    LESS_TERMCAP_md=$(printf "\e[1;31m") \
+    LESS_TERMCAP_me=$(printf "\e[0m") \
+    LESS_TERMCAP_se=$(printf "\e[0m") \
+    LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+    LESS_TERMCAP_ue=$(printf "\e[0m") \
+    LESS_TERMCAP_us=$(printf "\e[1;32m") \
+    man "$@"
+}
 
