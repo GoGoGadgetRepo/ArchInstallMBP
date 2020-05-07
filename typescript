@@ -1,0 +1,37 @@
+Script started on 2020-05-05 20:31:04+01:00 [TERM="alacritty" TTY="/dev/pts/0" COLUMNS="174" LINES="52"]
+[1m[7m%[27m[1m[0m                                                                                                                                                                              [0m[27m[24m[J~/Git/ArchInstallMBP > [K[143Cmaster [150D[?2004h[32mc[39m[32mc[32md[39m [4ms[24m[4ms[4mc[24m[24ms[24mcripts[1m/[0m[8D[4ms[4mc[4mr[4mi[4mp[4mt[4ms[24m[0m [?2004l
+[1m[7m%[27m[1m[0m                                                                                                                                                                              [0m[27m[24m[J~/Git/ArchInstallMBP/scripts > [K[135Cmaster [142D[?2004h[32ml[39m[32ml[32ml[39m[?2004l
+.[1;33mr[31mw[4;32mx[0m[33mr[38;5;244m-[32mx[33mr[38;5;244m-[32mx[0m [1;32m1.8[0m[32mk[0m [1;33mmasroor[0m [34m 4 May 23:40[0m [1;32mabc.sh[0m
+.[1;33mr[31mw[4;32mx[0m[33mr[38;5;244m-[32mx[33mr[38;5;244m-[32mx[0m  [1;32m303[0m [1;33mmasroor[0m [34m 4 May 14:59[0m [1;32mglobal.sh[0m
+.[1;33mr[31mw[0m[38;5;244m-[33mr[38;5;244m--[33mr[38;5;244m--[0m   [1;32m93[0m [1;33mmasroor[0m [34m 4 May 23:38[0m lb.csv
+[1m[7m%[27m[1m[0m                                                                                                                                                                              [0m[27m[24m[J~/Git/ArchInstallMBP/scripts > [K[135Cmaster [142D[?2004h[32m.[39m[39m[4m.[4m/[24m[4m.[4m/[4ma[24m[24m.[24m/[24mabc.sh[1m [0m[9D[32m.[32m/[32ma[32mb[32mc[32m.[32ms[32mh[39m[0m [?2004l
+Outside Light is 0
+Display Brightness 100 / 1953
+Keyboard Light is 200 / 255
+100
+200
+[1m[7m%[27m[1m[0m                                                                                                                                                                              [0m[27m[24m[J~/Git/ArchInstallMBP/scripts > [K[135Cmaster [142D[?2004h[1m[31mt[0m[39m[1m[31mt[1m[31mo[0m[39m[1m[31mt[1m[31mo[1m[31mu[0m[39m[1m[31mu[1m[31mc[0m[39m[0m[32mt[0m[32mo[0m[32mu[0m[32mc[32mh[39m [4ma[24m[4ma[4mb[24m[4mb[4mc[24m[4mc[4m.[24m[4m.[4ms[24m[24ma[24mb[24mc[24m.[24mservice     [4ma[4mb[4mc[4m.[4ms[24m [4m.[24m[24m [4mc[24m[24m [4mb[24m[24m [4ma[24m[24m [24m [1m[31mt[1m[31mo[1m[31mu[1m[31mc[0m[39m[39m [1m[31mu[0m[39m[0m[39m [1m[31mt[1m[31mo[0m[39m[0m[39m [1m[31mt[0m[39m[0m[39m [0m[39m [4mg[24m[24m[32mg[32ms[39m[?2004l
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	[31mmodified:   ../README.md[m
+	[31mmodified:   ../config/nvim/init.vim[m
+	[31mmodified:   ../config/sway/config[m
+	[31mmodified:   ../config/zsh/.zshrc[m
+	[31mdeleted:    aBrightness.sh[m
+	[31mmodified:   global.sh[m
+	[31mmodified:   lb.csv[m
+	[31mmodified:   ../settings.sh[m
+	[31mmodified:   ../sway.sh[m
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	[31m../config/alacritty/[m
+	[31mabc.sh[m
+	[31m../typescript[m
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[1m[7m%[27m[1m[0m                                                                                                                                                                              [0m[27m[24m[J~/Git/ArchInstallMBP/scripts > [K[135Cmaster [142D[?2004h[1m[31ms[0m[39m[0m[32ms[32mh[39m[1m[31ms[1m[31mh[1m[31mu[0m[39m[0m[32ms[0m[32mh[39m[0m[39m [1m[31ms[0m[39m[39m [0m[32ms[32mu[39m[1m[31ms[1m[31mu[1m[31md[0m[39m [0m[32ms[0m[32mu[39m[0m[39

@@ -67,6 +67,8 @@ map <Leader>tk	<C-w>t<C-w>K
 " Removes pipes | that act as separators on splits
 set fillchars+=vert:\
 
+colorscheme murphy
+
 " File type specific 
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 

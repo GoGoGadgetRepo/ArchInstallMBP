@@ -1,6 +1,8 @@
 #!/usr/bin/bash
 # Defining the shell path and global variables 
 SHELL_PATH=$(readlink -f $0 | xargs dirname)
+source ${SHELL_PATH}/scripts/global.sh
+
 
 info "Installing Packages for Sway"
 sudo pacman --noconfirm -Syu sway waybar	# Sway with top bar 
@@ -13,7 +15,7 @@ gsettings set org.gnome.Epiphany.web:/ hardware-acceleration-policy 'always'
 
 sudo pacman --noconfirm -Syu neovim-qt		# GUI Text Editor 
 sudo pacman --noconfirm -Syu mako		# Notification
-sudo pacman --noconfirm -Syu kitty		# Terminal 
+sudo pacman --noconfirm -Syu alacritty		# Terminal 
 sudo pacman --noconfirm -Syu wf-recorder	# Screen Recorder 
 sudo pacman --noconfirm -Syu grim		# Screen shot
 sudo pacman --noconfirm -Syu swaylock 		# Screen Locking
@@ -36,11 +38,14 @@ info "Installing Wayland compatible launcher and clipboard manager"
 sudo pikaur --noconfirm -S kbdlight	# Keyboard Lights TODO
 
 info "Moving Configurations"
+# Sway
 mkdir -p ${HOME}/.config/sway
-ln -s ${SHELL_PATH}/config/sway/config ${HOME}/.config/sway/config
-ln -s ${SHELL_PATH}/config/sway/autoStart  ${HOME}/.config/sway/autoStart
+ln -s ${SHELL_PATH}/config/sway	${HOME}/.config/sway
 # Waybar
 mkdir -p ${HOME}/.config/waybar
-ln -s ${SHELL_PATH}/config/waybar/config ${HOME}/.config/waybar/config
-ln -s ${SHELL_PATH}/config/waybar/style.css ${HOME}/.config/waybar/style.css
+ln -s ${SHELL_PATH}/config/waybar ${HOME}/.config/waybar
+# Alacritty
+mkdir -p ${HOME}/.config/alacritty
+ln -s ${SHELL_PATH}/config/alacritty ${HOME}/.config/alacritty
+
 

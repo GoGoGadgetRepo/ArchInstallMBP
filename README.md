@@ -38,7 +38,7 @@ cgdisk /dev/sda
 
 #### Formatting the Drives
 
-```bash
+```{bash}
 mkfs.vfat -F32 /dev/sda1
 mkfs.ext4 -l main /dev/sda2
 ```
@@ -76,7 +76,7 @@ pacstrap /mnt base base-devel vim intel-ucode sudo networkmanager wpa_supplicant
 | swayidle | | 
 | termite | Terminal application |
 | mako | Notification Daemon |
-| grim + slurp | Screenshot |
+| grim + slurp | Screen shot |
 | wl-clipboard | Clipboard copy/paste |
 
 #### Configuring fstab

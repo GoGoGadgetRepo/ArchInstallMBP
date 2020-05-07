@@ -1,0 +1,21 @@
+window:
+    decorations: none
+scrolling:
+    history: 100000
+    multiplier: 3
+background_opacity: 0.9
+
+font:
+    normal:
+        family: monospace
+        style: Regular
+    bold:
+        family: monospace
+        style: Bold
+    italic:
+        family: monospace
+        style: Italic
+    size: 14.0
+cursor:
+    style: Block
+    unfocused_hollow: true
