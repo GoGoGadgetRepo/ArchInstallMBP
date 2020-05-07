@@ -1,0 +1,9 @@
+[Unit]
+Description=Automatic Brightness Control
+
+[Service]
+Type=simple
+ExecStart=/home/masroor/Git/ArchInstallMBP/scripts/abc.sh
+
+[Install]
+WantedBy=multi-user.target

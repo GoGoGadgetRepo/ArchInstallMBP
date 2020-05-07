@@ -1,0 +1,9 @@
+[Unit]
+Description=Monitor external light conditions
+
+[Path]
+PathChanged=/sys/devices/platform/applesmc.768/light
+Unit=abc.service
+
+[Install]
+WantedBy=multi-user.target
