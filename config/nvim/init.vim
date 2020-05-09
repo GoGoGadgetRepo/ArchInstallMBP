@@ -3,10 +3,7 @@
 "# Author 	:	Masroor Rasheed
 "# Created	:	Sat 18 Apr 2020 21:10:18 BST
 "###############################################################################
-call plug#begin('~/.config/nvim/plugged')
-	Plug('itchyny/lightline.vim')
-call plug#end()
-"
+
 " Mode Settings for Cursor
 " 1 -> blinking block
 " 2 -> solid block

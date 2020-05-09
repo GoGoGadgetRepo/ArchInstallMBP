@@ -1,5 +1,11 @@
 window:
-    decorations: none
+    dimensions:
+        columns: 120
+        lines: 38
+    padding:
+        x: 10
+        y: 10
+    #decorations: none
 scrolling:
     history: 100000
     multiplier: 3
@@ -16,6 +22,38 @@ font:
         family: monospace
         style: Italic
     size: 14.0
+
+# Colors (Gruvbox dark)
+colors:
+    primary:
+        background: '#282828'
+        foreground: '#ebdbb2'
+
+    normal:
+        black:   '#282828'
+        red:     '#cc241d'
+        green:   '#98971a'
+        yellow:  '#d79921'
+        blue:    '#458588'
+        magenta: '#b16286'
+        cyan:    '#689d6a'
+        white:   '#a89984'
+
+    bright:
+        black:   '#928374'
+        red:     '#fb4934'
+        green:   '#b8bb26'
+        yellow:  '#fabd2f'
+        blue:    '#83a598'
+        magenta: '#d3869b'
+        cyan:    '#8ec07c'
+        white:   '#ebdbb2'
+
+    selection:
+        text: '0xffffff'
+        background: '0xdc3232'
+        white: '0xffffff'
+
 cursor:
     style: Block
     unfocused_hollow: true

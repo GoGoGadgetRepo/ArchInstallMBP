@@ -14,8 +14,8 @@ info "User level Configurations"
 ln -s ${SHELL_PATH}/config/profile $HOME/.config/profile
 
 info "ZSH Configuration"
-ln -s ${SHELL_PATH}/config/zsh ${HOME}/.config/zsh
+ln -s ${SHELL_PATH}/config/zsh ${HOME}/.config
 sudo chsh -s /bin/zsh ${USER}
 
 info "Neovim Configuration"
-ln -s ${SHELL_PATH}/config/nvim ${HOME}/.config/nvim
+ln -s ${SHELL_PATH}/config/nvim ${HOME}/.config

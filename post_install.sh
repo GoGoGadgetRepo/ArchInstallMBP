@@ -52,9 +52,9 @@ pikaur --noconfirm -S thermald
 sudo systemctl enable thermald
 sudo systemctl start thermald
 
-pikaur --noconfirm -S laptop-mode-tools
-sudo systemctl enable laptop-mode.service
-sudo systemctl start laptop-mode.service
+#pikaur --noconfirm -S laptop-mode-tools
+#sudo systemctl enable laptop-mode.service
+#sudo systemctl start laptop-mode.service
 
 #info "Enabling fans for the Macbook Pro"
 #pikaur --noconfirm -S mbpfan-git kbdlight
@@ -66,15 +66,10 @@ sudo systemctl start laptop-mode.service
 info "Installing Missing Firmware and Update Linux Kernel"
 pikaur --noconfirm -S wd719x-firmware aic94xx-firmware bcwc-pcie-git
 sudo mkinitcpio -p linux
-sudo mkinitcpio -p linux-zen
-sudo mkinitcpio -p linux-lts
 
 info "Installing Utilities"
-sudo pacman --noconfirm -S zsh man pacman-contrib zsh-syntax-highlighting htop nnn vlc youtube-dl lm_sensors unzip ttf-liberation
+sudo pacman --noconfirm -S zsh man pacman-contrib zsh-syntax-highlighting htop nnn vlc youtube-dl lm_sensors unzip ttf-liberation imv
 
 info "Applying custom settings."
 sh ${SHELL_PATH}/settings.sh
 
-#sudo pacman --noconfirm -S nnn hunspell-en_GB arc-gtk-theme vlc youtube-dl
-#sudo pacman --noconfirm -S unzip lm_sensors 
-#sudo pacman --noconfirm -S ttf-liberation lxappearance 

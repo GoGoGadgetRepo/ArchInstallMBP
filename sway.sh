@@ -26,13 +26,14 @@ sudo pacman --noconfirm -Syu ghostscript	# Postscript language support
 sudo pacman --noconfirm -Syu pdftricks		# PDF Manipulations
 
 info "Zathura PDF and Plug-ins"
-sudo pacman --noconfirm -Syu zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-pdf-poppler zathura-ps
+sudo pacman --noconfirm -Syu zathura zathura-cb zathura-djvu zathura-pdf-poppler zathura-ps
 
 info "Multimedia frameworks"
 sudo pacman --noconfirm -Syu gst-libav gst-plugins-base gst-plugins-good libde265 gstreamer-vaapi
 
-info "Setting packages that enable Wayland GUI"
+info "Setting packages that enable Wayland GUI and Video Acceleration"
 sudo pacman --noconfirm -S qt5-wayland glfw-wayland glew-wayland clutter
+sudo pacman --noconfirm -S intel-media-driver libva-intel-driver libvdpau-va-gl libva-utils
 
 info "Installing Wayland compatible launcher and clipboard manager"
 sudo pikaur --noconfirm -S kbdlight	# Keyboard Lights TODO
@@ -40,12 +41,12 @@ sudo pikaur --noconfirm -S kbdlight	# Keyboard Lights TODO
 info "Moving Configurations"
 # Sway
 mkdir -p ${HOME}/.config/sway
-ln -s ${SHELL_PATH}/config/sway	${HOME}/.config/sway
+ln -s ${SHELL_PATH}/config/sway	${HOME}/.config
 # Waybar
 mkdir -p ${HOME}/.config/waybar
-ln -s ${SHELL_PATH}/config/waybar ${HOME}/.config/waybar
+ln -s ${SHELL_PATH}/config/waybar ${HOME}/.config
 # Alacritty
 mkdir -p ${HOME}/.config/alacritty
-ln -s ${SHELL_PATH}/config/alacritty ${HOME}/.config/alacritty
+ln -s ${SHELL_PATH}/config/alacritty ${HOME}/.config
 
 

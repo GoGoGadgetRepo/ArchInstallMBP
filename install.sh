@@ -32,8 +32,6 @@ info "Making bootable drive and configurations"
 bootctl --path=/boot install
 cp ${SHELL_PATH}/config/boot/arch.conf /boot/loader/entries/
 cp ${SHELL_PATH}/config/boot/loader.conf /boot/loader/
-cp ${SHELL_PATH}/config/boot/zen.conf /boot/loader/entries/
-cp ${SHELL_PATH}/config/boot/lts.conf /boot/loader/entries/
 
 info "Setting the sound card index to PCA"
 cp ${SHELL_PATH}/config/modprobe/snd_hda_intel.conf /etc/modprobe.d/
@@ -63,7 +61,6 @@ bootctl set-default arch.conf
 bootctl list
 
 info "The system will shutdown in 5 seconds. Run post_install.sh after restart."
-sleep 5
 exit
 
 

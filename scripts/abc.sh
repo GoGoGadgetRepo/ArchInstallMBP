@@ -8,7 +8,7 @@
 
 
 # Files that are utilized in this process.
-SETTINGS_FILE="/home/masroor/Git/ArchInstallMBP/scripts/lb.csv"
+SETTINGS_FILE="/home/masroor/ArchInstallMBP/scripts/lb.csv"
 DISPLAY_FILE="/sys/class/backlight/intel_backlight/brightness"
 KEYBOARD_FILE="/sys/class/leds/smc::kbd_backlight/brightness"
 LIGHT_FILE="/sys/devices/platform/applesmc.768/light"
