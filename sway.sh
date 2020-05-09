@@ -10,8 +10,7 @@ sudo pacman --noconfirm -Syu xorg-server-xwayland   #Backward Compatibility with
 sudo pacman --noconfirm -Syu lxapperance  	# Customization of GTK+
 info "Utilities"
 sudo pacman --noconfirm -Syu awesome awesome-terminal-fonts ttf-liberation  
-sudo pacman --noconfirm -Syu epiphany 		# Web Browser
-gsettings set org.gnome.Epiphany.web:/ hardware-acceleration-policy 'always'
+sudo pacman --noconfirm -Syu firefox 		# Web Browser
 
 sudo pacman --noconfirm -Syu neovim-qt		# GUI Text Editor 
 sudo pacman --noconfirm -Syu mako		# Notification
@@ -26,7 +25,7 @@ sudo pacman --noconfirm -Syu ghostscript	# Postscript language support
 sudo pacman --noconfirm -Syu pdftricks		# PDF Manipulations
 
 info "Zathura PDF and Plug-ins"
-sudo pacman --noconfirm -Syu zathura zathura-cb zathura-djvu zathura-pdf-poppler zathura-ps
+sudo pacman --noconfirm -Syu zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps
 
 info "Multimedia frameworks"
 sudo pacman --noconfirm -Syu gst-libav gst-plugins-base gst-plugins-good libde265 gstreamer-vaapi
