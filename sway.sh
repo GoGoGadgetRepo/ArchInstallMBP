@@ -39,13 +39,10 @@ sudo pikaur --noconfirm -S kbdlight	# Keyboard Lights TODO
 
 info "Moving Configurations"
 # Sway
-mkdir -p ${HOME}/.config/sway
 ln -s ${SHELL_PATH}/config/sway	${HOME}/.config
 # Waybar
-mkdir -p ${HOME}/.config/waybar
 ln -s ${SHELL_PATH}/config/waybar ${HOME}/.config
 # Alacritty
-mkdir -p ${HOME}/.config/alacritty
 ln -s ${SHELL_PATH}/config/alacritty ${HOME}/.config
 
 

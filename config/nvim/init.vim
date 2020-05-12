@@ -31,9 +31,9 @@ set mouse=nicr			" Enabling mouse scrolling
 set nu rnu 			" Line numbering
 set cursorline			" Highlight current line
 setlocal spell spelllang=en_gb	" British Dictionary
-set spell 
+"set spell 
 set clipboard=unnamedplus
-set nohlsearch
+set hlsearch
 set smartindent
 set showmatch
 set incsearch
@@ -64,7 +64,7 @@ map <Leader>tk	<C-w>t<C-w>K
 " Removes pipes | that act as separators on splits
 set fillchars+=vert:\
 
-colorscheme murphy
+colorscheme ron
 
 " File type specific 
 autocmd BufNewFile,BufRead *.md set filetype=markdown
