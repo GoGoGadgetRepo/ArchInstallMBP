@@ -19,3 +19,6 @@ sudo chsh -s /bin/zsh ${USER}
 
 info "Neovim Configuration"
 ln -s ${SHELL_PATH}/config/nvim ${HOME}/.config
+
+info "NetworkManager Configuration"
+sudo cp ${SHELL_PATH}/config/etc/NetworkManager.conf /etc/NetworkManager/ 
