@@ -7,9 +7,9 @@ export EDITOR=nvim
 # Short cuts
 ################################################################################
 #alias ls='ls --color=always'
-alias ls='exa'
-alias l='ls -a'
-alias ll='ls -la'
+alias ls='ls'
+alias l='exa'
+alias ll='exa -la'
 alias vim='nvim'
 alias vg='nvim-qt'
 alias v='vim'

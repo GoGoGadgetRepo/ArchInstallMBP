@@ -23,6 +23,7 @@ sudo pacman --noconfirm -Syu wofi		# Launcher
 sudo pacman --noconfirm -Syu wl-clipboard	# Clipboard Manager
 sudo pacman --noconfirm -Syu ghostscript	# Postscript language support
 sudo pacman --noconfirm -Syu pdftricks		# PDF Manipulations
+sudo pacman --noconfirm -Syu evolution gnome-keyring # Email Client
 
 info "Zathura PDF and Plug-ins"
 sudo pacman --noconfirm -Syu zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps
