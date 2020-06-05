@@ -3,7 +3,7 @@ Description=Automatic Brightness Control
 
 [Service]
 Type=simple
-ExecStart=/home/masroor/ArchInstallMBP/scripts/abc.sh
+ExecStart=/home/masroor/ArchInstallMBP/scripts/abc
 
 [Install]
 WantedBy=multi-user.target

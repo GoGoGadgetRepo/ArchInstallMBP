@@ -14,28 +14,33 @@ KEYBOARD_FILE="/sys/class/leds/smc::kbd_backlight/brightness"
 LIGHT_FILE="/sys/devices/platform/applesmc.768/light"
 
 # Determine the light intensity around the laptop
-LIGHT=$(cat  ${LIGHT_FILE} | tr -d '()' | awk -F, '{print $1}' )
-echo "Outside Light is ${LIGHT}"
+# awk statement is 0.020 sec slower
+# LIGHT=$(cat  ${LIGHT_FILE} | tr -d '()' | awk -F, '{print $1}' )
+LIGHT=${${$(< ${LIGHT_FILE})%%,*}#\(}
 
 # Maximum and Current Display Brightness
-MAX_DISPLAY_BRIGHTNESS=$(cat /sys/class/backlight/intel_backlight/max_brightness)
-CUR_DISPLAY_BRIGHTNESS=$(cat /sys/class/backlight/intel_backlight/brightness)
-echo "Display Brightness ${CUR_DISPLAY_BRIGHTNESS} / ${MAX_DISPLAY_BRIGHTNESS}"
+MAX_DISPLAY_BRIGHTNESS=$(< /sys/class/backlight/intel_backlight/max_brightness)
+CUR_DISPLAY_BRIGHTNESS=$(< /sys/class/backlight/intel_backlight/brightness)
 
 # Maximum and Current Back light for keyboard
-CUR_KEYBOARD_BACKLIGHT=$(cat /sys/class/leds/smc::kbd_backlight/brightness)
-MAX_KEYBOARD_BACKLIGHT=$(cat /sys/class/leds/smc::kbd_backlight/max_brightness)
-echo "Keyboard Light is ${CUR_KEYBOARD_BACKLIGHT} / ${MAX_KEYBOARD_BACKLIGHT}"
+CUR_KEYBOARD_BACKLIGHT=$(< /sys/class/leds/smc::kbd_backlight/brightness)
+MAX_KEYBOARD_BACKLIGHT=$(< /sys/class/leds/smc::kbd_backlight/max_brightness)
 
 # Setting the new value based on configuration file
 NEW_KEYBOARD_BACKLIGHT=$(grep ^$LIGHT, ${SETTINGS_FILE} | cut -d, -f2)
 NEW_DISPLAY_BRIGHTNESS=$(grep ^$LIGHT, ${SETTINGS_FILE} | cut -d, -f3)
 
 if [ -z $NEW_KEYBOARD_BACKLIGHT ]; then
-	echo "${LIGHT},${CUR_KEYBOARD_BACKLIGHT},${CUR_DISPLAY_BRIGHTNESS}" >> ${SETTINGS_FILE}
+	echo "${LIGHT},${CUR_KEYBOARD_BACKLIGHT},${CUR_DISPLAY_BRIGHTNESS}" \
+		>> ${SETTINGS_FILE}
 	NEW_KEYBOARD_BACKLIGHT=${CUR_KEYBOARD_BACKLIGHT}
 	NEW_DISPLAY_BRIGHTNESS=${CUR_DISPLAY_BRIGHTNESS}
 fi
 
-echo ${NEW_DISPLAY_BRIGHTNESS} | sudo tee ${DISPLAY_FILE}
-echo ${NEW_KEYBOARD_BACKLIGHT} | sudo tee ${KEYBOARD_FILE}
+echo "Outside Light is ${LIGHT}"
+echo "Display Brightness ${CUR_DISPLAY_BRIGHTNESS} --> ${NEW_DISPLAY_BRIGHTNESS} \
+	/ ${MAX_DISPLAY_BRIGHTNESS}"
+echo "Keyboard Light is ${CUR_KEYBOARD_BACKLIGHT} --> ${NEW_KEYBOARD_BACKLIGHT} \
+	/ ${MAX_KEYBOARD_BACKLIGHT}"
+echo ${NEW_DISPLAY_BRIGHTNESS} | sudo tee ${DISPLAY_FILE} > /dev/null
+echo ${NEW_KEYBOARD_BACKLIGHT} | sudo tee ${KEYBOARD_FILE} > /dev/null

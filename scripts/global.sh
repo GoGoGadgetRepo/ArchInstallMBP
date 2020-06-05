@@ -8,8 +8,7 @@ reset=`tput sgr0`
 info() {
 	echo "${orange}"
 	printf %${COLUMNS}s | tr " " "="
-	echo "${green}$1${reset}"
-	echo "${orange}"
+	echo "${green}$1${orange}"
 	printf %${COLUMNS}s | tr " " "="
 	echo "${reset}"
 }
