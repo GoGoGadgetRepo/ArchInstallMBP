@@ -61,6 +61,5 @@ bootctl set-default arch.conf
 bootctl list
 
 info "The system will shutdown in 5 seconds. Run post_install.sh after restart."
-exit
 
 

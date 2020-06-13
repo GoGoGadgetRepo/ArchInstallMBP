@@ -2,7 +2,7 @@
 Description=Monitor external light conditions
 
 [Path]
-PathModified=/sys/devices/platform/applesmc.768/light
+PathChanged=/sys/devices/platform/applesmc.768/light
 Unit=abc.service
 
 [Install]

@@ -6,20 +6,20 @@ source ${SHELL_PATH}/scripts/global.sh
 
 info "Installing Packages for Sway"
 sudo pacman --noconfirm -Syu sway waybar	# Sway with top bar 
-sudo pacman --noconfirm -Syu xorg-server-xwayland   #Backward Compatibility with X11
-sudo pacman --noconfirm -Syu lxapperance  	# Customization of GTK+
+#sudo pacman --noconfirm -Syu xorg-server-xwayland   #Backward Compatibility with X11
+#sudo pacman --noconfirm -Syu lxapperance  	# Customization of GTK+
 info "Utilities"
-sudo pacman --noconfirm -Syu awesome awesome-terminal-fonts ttf-liberation  
+sudo pacman --noconfirm -Syu awesome-terminal-fonts ttf-liberation  
 sudo pacman --noconfirm -Syu firefox 		# Web Browser
 
 sudo pacman --noconfirm -Syu neovim-qt		# GUI Text Editor 
-sudo pacman --noconfirm -Syu mako		# Notification
+sudo pacman --noconfirm -Syu mako			# Notification
 sudo pacman --noconfirm -Syu alacritty		# Terminal 
 sudo pacman --noconfirm -Syu wf-recorder	# Screen Recorder 
-sudo pacman --noconfirm -Syu grim		# Screen shot
+sudo pacman --noconfirm -Syu grim			# Screen shot
 sudo pacman --noconfirm -Syu swaylock 		# Screen Locking
 sudo pacman --noconfirm -Syu brightnessctl	# Screen brightness control TODO  
-sudo pacman --noconfirm -Syu wofi		# Launcher 
+sudo pacman --noconfirm -Syu wofi			# Launcher 
 sudo pacman --noconfirm -Syu wl-clipboard	# Clipboard Manager
 sudo pacman --noconfirm -Syu ghostscript	# Postscript language support
 sudo pacman --noconfirm -Syu pdftricks		# PDF Manipulations

@@ -1,46 +1,45 @@
-#!/usr/bin/zsh
+#!/usr/bin/sh
 ################################################################################
 # Automatic Brightness Control (abc)
 # File name : abc.sh
 # Author : Masroor Rasheed
 # email : masroor.rasheed@gmail.com
 ################################################################################
-
-
+#
 # Files that are utilized in this process.
-SETTINGS_FILE="/home/masroor/ArchInstallMBP/scripts/lb.csv"
 DISPLAY_FILE="/sys/class/backlight/intel_backlight/brightness"
 KEYBOARD_FILE="/sys/class/leds/smc::kbd_backlight/brightness"
 LIGHT_FILE="/sys/devices/platform/applesmc.768/light"
 
 # Determine the light intensity around the laptop
-# awk statement is 0.020 sec slower
-# LIGHT=$(cat  ${LIGHT_FILE} | tr -d '()' | awk -F, '{print $1}' )
-LIGHT=${${$(< ${LIGHT_FILE})%%,*}#\(}
+LIGHT=$(cat  ${LIGHT_FILE} | tr -d '()' | awk -F, '{print $1}' )
 
 # Maximum and Current Display Brightness
-MAX_DISPLAY_BRIGHTNESS=$(< /sys/class/backlight/intel_backlight/max_brightness)
-CUR_DISPLAY_BRIGHTNESS=$(< /sys/class/backlight/intel_backlight/brightness)
+CUR_DB=$(< /sys/class/backlight/intel_backlight/brightness)
+MAX_DB=$(< /sys/class/backlight/intel_backlight/max_brightness)
 
 # Maximum and Current Back light for keyboard
-CUR_KEYBOARD_BACKLIGHT=$(< /sys/class/leds/smc::kbd_backlight/brightness)
-MAX_KEYBOARD_BACKLIGHT=$(< /sys/class/leds/smc::kbd_backlight/max_brightness)
+CUR_KB=$(< /sys/class/leds/smc::kbd_backlight/brightness)
+MAX_KB=$(< /sys/class/leds/smc::kbd_backlight/max_brightness)
 
 # Setting the new value based on configuration file
-NEW_KEYBOARD_BACKLIGHT=$(grep ^$LIGHT, ${SETTINGS_FILE} | cut -d, -f2)
-NEW_DISPLAY_BRIGHTNESS=$(grep ^$LIGHT, ${SETTINGS_FILE} | cut -d, -f3)
+NEW_KB=$(( ${MAX_KB} - ($LIGHT * 75) ))
+NEW_DB=$(( ($LIGHT * 50) + 200 ))
 
-if [ -z $NEW_KEYBOARD_BACKLIGHT ]; then
-	echo "${LIGHT},${CUR_KEYBOARD_BACKLIGHT},${CUR_DISPLAY_BRIGHTNESS}" \
-		>> ${SETTINGS_FILE}
-	NEW_KEYBOARD_BACKLIGHT=${CUR_KEYBOARD_BACKLIGHT}
-	NEW_DISPLAY_BRIGHTNESS=${CUR_DISPLAY_BRIGHTNESS}
+# Ensuring negative values for Keyboard brightness are not sent to file.
+if [ ${NEW_KB} -lt 0 ]; then
+	NEW_KB=0
+fi
+# Ensuring the brightness is not greater than the capabilities of hardware.
+if [ ${NEW_DB} -gt ${MAX_DB} ]; then
+	NEW_DB=${MAX_DB}
 fi
 
+# Printing out the information of the operations
 echo "Outside Light is ${LIGHT}"
-echo "Display Brightness ${CUR_DISPLAY_BRIGHTNESS} --> ${NEW_DISPLAY_BRIGHTNESS} \
-	/ ${MAX_DISPLAY_BRIGHTNESS}"
-echo "Keyboard Light is ${CUR_KEYBOARD_BACKLIGHT} --> ${NEW_KEYBOARD_BACKLIGHT} \
-	/ ${MAX_KEYBOARD_BACKLIGHT}"
-echo ${NEW_DISPLAY_BRIGHTNESS} | sudo tee ${DISPLAY_FILE} > /dev/null
-echo ${NEW_KEYBOARD_BACKLIGHT} | sudo tee ${KEYBOARD_FILE} > /dev/null
+echo "Display Brightness ${CUR_DB} --> ${NEW_DB} : ${MAX_DB}"
+echo "Keyboard Light is ${CUR_KB} --> ${NEW_KB} : ${MAX_KB}"
+
+# Writing the settings to system files for changes
+sudo sh -c "echo ${NEW_DB} > ${DISPLAY_FILE}"
+sudo sh -c "echo ${NEW_KB} > ${KEYBOARD_FILE}" 

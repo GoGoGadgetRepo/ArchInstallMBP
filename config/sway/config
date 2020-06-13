@@ -7,23 +7,20 @@
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
-set $mod Mod4
+set $mod Mod4			
 # Home row direction keys, like vim
 set $left h
 set $down j
 set $up k
 set $right l
-# Your preferred terminal emulator
-set $term alacritty
+set $term alacritty  	# Your preferred terminal emulator
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
-# on the original workspace that the command was run on.
-#set $menu dmenu_path | dmenu | xargs swaymsg exec --
 set $menu wofi --show=drun -I
 
 ### Output configuration
 #
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+# Default wallpaper (available in /usr/share/backgrounds/sway/)
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #
 # Example configuration:
@@ -72,18 +69,15 @@ input "1452:628:Apple_Inc._Apple_Internal_Keyboard_/_Trackpad" {
 # Basics:
 #
     bindsym $mod+Return exec $term	# Start a terminal
-    bindsym $mod+Shift+q kill		# Kill focused window
+    bindsym $mod+q kill				# Kill focused window
     bindsym $mod+space exec $menu	# Start your launcher
-
+	bindsym $mod+m exec swaymsg reload		# Reload the configuration file
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
     # Despite the name, also works for non-floating windows.
     # Change normal to inverse to use left mouse button for resizing and right
     # mouse button for dragging.
     floating_modifier $mod normal
-
-    # Reload the configuration file
-    bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
@@ -210,19 +204,22 @@ title_align		center
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-#bar {
-#    position top
-#
-#    # When the status_command prints a new line to stdout, swaybar updates.
-#    # The default just shows the current date and time.
-#    status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
-#
-#    colors {
-#        statusline #ffffff
-#        background #323232
-#        inactive_workspace #32323200 #32323200 #5c5c5c
-#    }
-#}
+bar {
+    position top
+	mode dock
+	pango_markup enabled
+	
+    # When the status_command prints a new line to stdout, swaybar updates.
+    # The default just shows the current date and time.
+    status_command while date +'%d-%b-%Y %l:%M %p'; do sleep 30s; done
+
+	colors {
+		background #282828
+		statusline #fbf1c7
+
+
+    }
+}
 
 exec --no-startup-id waybar
 
@@ -250,7 +247,7 @@ bindsym XF86KbdBrightnessDown exec kbdlight down
 #
 # Window
 gaps inner 5
-gaps outer 0
+gaps outer 3
 
 default_border pixel 3
 focus_follows_mouse yes

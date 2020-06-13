@@ -16,7 +16,7 @@ alias v='vim'
 alias sv='sudo vim'
 alias sp='sudo pacman'
 alias c='clear'
-alias grep='grep --color=always'
+alias g='grep --color=always'
 
 # Git Customization
 alias gs='git status'

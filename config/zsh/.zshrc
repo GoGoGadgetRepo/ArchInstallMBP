@@ -43,4 +43,4 @@ SAVEHIST=1000
 ################################################################################
 bindkey -v
 
-source $XDG_CONFIG_HOME/sway/autoStart
+#source $XDG_CONFIG_HOME/sway/autoStart

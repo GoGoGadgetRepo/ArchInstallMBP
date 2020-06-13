@@ -24,14 +24,14 @@ set path+=**			" Search current directory recursively
 set wildmenu			" Display all matches
 set incsearch			" Incremental search
 set nobackup			" No auto backup
-set noswapfile			" No swap
+"set noswapfile			" No swap
 set t_Co=256			" Set if term support 256 colours
 syntax on			" Syntax highlighting
 set mouse=nicr			" Enabling mouse scrolling
 set nu rnu 			" Line numbering
 set cursorline			" Highlight current line
 setlocal spell spelllang=en_gb	" British Dictionary
-"set spell 
+set spell 
 set clipboard=unnamedplus
 set hlsearch
 set smartindent
@@ -43,6 +43,11 @@ set laststatus=2
 set smarttab
 set shiftwidth=4
 set tabstop=4
+set colorcolumn=80
+
+" Latex Suite Specific
+set grepprg=grep\ -nH\ $*
+let g:tex_flavor="latex"
 
 " Splits and Tabbed Files
 "
@@ -64,7 +69,9 @@ map <Leader>tk	<C-w>t<C-w>K
 " Removes pipes | that act as separators on splits
 set fillchars+=vert:\
 
-colorscheme ron
+colorscheme gruvbox
+" hi Comment ctermfg=LightBlue
+
 
 " File type specific 
 autocmd BufNewFile,BufRead *.md set filetype=markdown
