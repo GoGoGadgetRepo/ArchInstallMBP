@@ -25,6 +25,9 @@ alias gs='git status'
 
 # nnn Customization
 export NNN_COLORS="2136" 
+export NNN_ARCHIVE="\\.(7z|bz2|gz|tar|tgz|zip)$"
+export NNN_TRASH=1
+export NNN_FIFO='/tmp/nnn.fifo'
 
 ################################################################################
 # Useful Shell functions 
