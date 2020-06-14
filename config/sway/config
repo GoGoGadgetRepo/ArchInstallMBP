@@ -1,5 +1,4 @@
 #Default config for sway
-#
 # Copy this to ~/.config/sway/config and edit it to your liking.
 #
 # Read `man 5 sway` for a complete reference.
@@ -211,12 +210,12 @@ bar {
 	
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%d-%b-%Y %l:%M %p'; do sleep 30s; done
+    # status_command while date +'%d-%b-%Y %l:%M %p'; do sleep 30s; done
+	status_command while ${XDG_CONFIG_HOME}/sway/statusBar; do sleep 30; done
 
 	colors {
 		background #282828
 		statusline #fbf1c7
-
 
     }
 }
