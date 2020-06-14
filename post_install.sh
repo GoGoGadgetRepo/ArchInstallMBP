@@ -40,9 +40,6 @@ sudo pacman --noconfirm -S acpid acpi acpi_call
 sudo systemctl enable acpid.service
 sudo systemctl start acpid.service
 
-pikaur --noconfirm -S thermald
-sudo systemctl enable thermald
-sudo systemctl start thermald
 
 info "Installing pikaur"
 export PACK=PIKAUR
@@ -52,17 +49,21 @@ git clone https://aur.archlinux.org/pikaur.git /tmp/$PACK
 cd /tmp/$PACK
 makepkg -fsri
 
+info "Installing Thermald"
+pikaur --noconfirm -S thermald
+sudo systemctl enable thermald
+sudo systemctl start thermald
 
-#pikaur --noconfirm -S laptop-mode-tools
-#sudo systemctl enable laptop-mode.service
-#sudo systemctl start laptop-mode.service
+info "Installing laptop-mode-tools"
+pikaur --noconfirm -S laptop-mode-tools
+sudo systemctl enable laptop-mode.service
+sudo systemctl start laptop-mode.service
 
-#info "Enabling fans for the Macbook Pro"
-#pikaur --noconfirm -S mbpfan kbdlight
-#sudo cp ${SHELL_PATH}/config/etc/mbpfan.conf /etc/
-#sudo systemctl enable mbpfan
-#sudo systemctl start mbpfan
-
+info "Enabling fans for the Macbook Pro"
+pikaur --noconfirm -S mbpfan kbdlight
+sudo cp ${SHELL_PATH}/config/etc/mbpfan.conf /etc/
+sudo systemctl enable mbpfan
+sudo systemctl start mbpfan
 
 info "Installing Missing Firmware and Update Linux Kernel"
 pikaur --noconfirm -S wd719x-firmware aic94xx-firmware bcwc-pcie-git

@@ -6,8 +6,8 @@ source ${SHELL_PATH}/scripts/global.sh
 
 info "Installing Packages for Sway"
 sudo pacman --noconfirm -Syu sway waybar	# Sway with top bar 
-#sudo pacman --noconfirm -Syu xorg-server-xwayland   #Backward Compatibility with X11
-#sudo pacman --noconfirm -Syu lxapperance  	# Customization of GTK+
+sudo pacman --noconfirm -Syu xorg-server-xwayland   #Backward Compatibility with X11
+sudo pacman --noconfirm -Syu lxapperance  	# Customization of GTK+
 info "Utilities"
 sudo pacman --noconfirm -Syu awesome-terminal-fonts ttf-liberation  
 sudo pacman --noconfirm -Syu firefox 		# Web Browser
