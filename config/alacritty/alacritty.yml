@@ -13,15 +13,15 @@ background_opacity: 0.9
 
 font:
     normal:
-        family: monospace
+        family: serif
         style: Regular
     bold:
-        family: monospace
+        family: serif 
         style: Bold
     italic:
-        family: monospace
+        family: serif 
         style: Italic
-    size: 14.0
+    size: 12.0
 
 # Colors (Gruvbox dark)
 colors:

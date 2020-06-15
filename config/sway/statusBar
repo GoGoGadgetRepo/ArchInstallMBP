@@ -1,16 +1,23 @@
 #!/usr/bin/sh
-SEP="  "
+SEP=" "
 
 # Enabling automatic brightness control and keyboard lights
+################################################################################
 source /usr/bin/abc
 
 # Brightness of the screen
+################################################################################
 CUR_DB=$(< /sys/class/backlight/intel_backlight/brightness)
 MAX_DB=$(< /sys/class/backlight/intel_backlight/max_brightness)
 PER_DB=$( echo ${CUR_DB}"/"${MAX_DB}"*100" | bc -l | awk -F. '{print $1}')
-Bmesg=${PER_DB}"%"
+if [ $PER_DB -lt 20 ]; then
+	Bmesg="☪"${PER_DB}"%"
+else
+	Bmesg="☀"${PER_DB}"%"
+fi
 
 # Date and Time 
+################################################################################
 Bmesg=${Bmesg}${SEP}$(date +'%d-%b-%Y %l:%M %p')
 
 echo $Bmesg

@@ -207,6 +207,7 @@ bar {
     position top
 	mode dock
 	pango_markup enabled
+	font sans-serif
 	
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
