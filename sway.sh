@@ -3,7 +3,6 @@
 SHELL_PATH=$(readlink -f $0 | xargs dirname)
 source ${SHELL_PATH}/scripts/global.sh
 
-
 info "Installing Packages for Sway"
 sudo pacman --noconfirm -Syu sway waybar	# Sway with top bar 
 sudo pacman --noconfirm -Syu xorg-server-xwayland   #Backward Compatibility with X11
@@ -25,8 +24,14 @@ sudo pacman --noconfirm -Syu ghostscript	# Postscript language support
 sudo pacman --noconfirm -Syu pdftricks		# PDF Manipulations
 sudo pacman --noconfirm -Syu evolution gnome-keyring # Email Client
 
+info "Mathematics"
+sudo pacman --noconfirm -Syu bc				# terminal calculator
+
 info "Zathura PDF and Plug-ins"
 sudo pacman --noconfirm -Syu zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps
+
+info "Fonts"
+sudo pacman --noconfirm -Syu awesome-terminal-fonts ttf-liberation noto-fonts-emoji
 
 info "Multimedia frameworks"
 sudo pacman --noconfirm -Syu gst-libav gst-plugins-base gst-plugins-good libde265 gstreamer-vaapi
@@ -35,10 +40,18 @@ info "Setting packages that enable Wayland GUI and Video Acceleration"
 sudo pacman --noconfirm -S qt5-wayland glfw-wayland glew-wayland clutter
 sudo pacman --noconfirm -S intel-media-driver libva-intel-driver libvdpau-va-gl libva-utils
 
+
+info "Setting packages that enable Wayland GUI and Video Acceleration"
+sudo pacman --noconfirm -S qt5-wayland glfw-wayland glew-wayland clutter
+sudo pacman --noconfirm -S intel-media-driver libva-intel-driver libvdpau-va-gl libva-utils
+
 info "Installing Wayland compatible launcher and clipboard manager"
 sudo pikaur --noconfirm -S kbdlight	# Keyboard Lights TODO
 
-info "Moving Configurations"
+info "Automatic Brightness Control"
+sudo cp ${SHELL_PATH}/scripts/abc /usr/bin/
+
+info "Linking Configurations"
 # Sway
 ln -s ${SHELL_PATH}/config/sway	${HOME}/.config
 # Waybar
