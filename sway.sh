@@ -8,7 +8,7 @@ sudo pacman --noconfirm -Syu sway waybar	# Sway with top bar
 sudo pacman --noconfirm -Syu xorg-server-xwayland   #Backward Compatibility with X11
 sudo pacman --noconfirm -Syu lxapperance  	# Customization of GTK+
 info "Utilities"
-sudo pacman --noconfirm -Syu awesome-terminal-fonts ttf-liberation  
+sudo pacman --noconfirm -Syu awesome-terminal-fonts ttf-liberation noto-fonts-emoji
 sudo pacman --noconfirm -Syu swayidle		# Idle Management
 sudo pacman --noconfirm -Syu firefox 		# Web Browser
 sudo pacman --noconfirm -Syu neovim-qt		# GUI Text Editor 
@@ -50,6 +50,9 @@ sudo pikaur --noconfirm -S kbdlight	# Keyboard Lights TODO
 
 info "Automatic Brightness Control"
 sudo cp ${SHELL_PATH}/scripts/abc /usr/bin/
+
+info "Automatic Brightness Control"
+sudo cp ${SHELL_PATH}/scripts/abc /usr/bin
 
 info "Linking Configurations"
 # Sway

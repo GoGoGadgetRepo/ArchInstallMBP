@@ -19,8 +19,8 @@ nmcli dev wifi connect ${SSID} password ${password}
 
 info "Installing Reflector to find the best mirror list for downloading."
 pacman -Sy --noconfirm reflector
-cp /etc/pacman.d/mirrorlist  /etc/pacman.d/mirrorlist.backup
-reflector --verbose --latest 10 --sort rate --save /etc/pacman.d/mirrorlist
+sudo cp /etc/pacman.d/mirrorlist  /etc/pacman.d/mirrorlist.backup
+sudo reflector --verbose --latest 10 --sort rate --save /etc/pacman.d/mirrorlist
 
 info "Enabling Network Manager"
 sudo systemctl enable NetworkManager-dispatcher.service
@@ -40,7 +40,7 @@ pikaur --noconfirm -S wd719x-firmware aic94xx-firmware bcwc-pcie-git
 sudo mkinitcpio -p linux
 
 info "Installing Utilities"
-sudo pacman --noconfirm -S zsh man pacman-contrib zsh-syntax-highlighting htop nnn vlc youtube-dl lm_sensors unzip ttf-liberation imv
+sudo pacman --noconfirm -S zsh man pacman-contrib zsh-syntax-highlighting htop nnn vlc youtube-dl lm_sensors unzip ttf-liberation imv bat
 
 info "Applying custom settings."
 sh ${SHELL_PATH}/settings.sh

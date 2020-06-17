@@ -6,7 +6,7 @@ source ${SHELL_PATH}/scripts/global.sh
 
 sudo pacman --noconfirm -Syu gnome gnome-extra gnome-tweaks gdm
 
-sudo pacman --noconfirm -Syu awesome awesome-terminal-fonts ttf-liberation  
+sudo pacman --noconfirm -Syu awesome-terminal-fonts ttf-liberation  
 sudo pacman --noconfirm -Syu firefox 		# Web Browser
 sudo pacman --noconfirm -Syu alacritty		# Terminal 
 
