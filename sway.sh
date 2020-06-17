@@ -49,9 +49,6 @@ info "Installing Wayland compatible launcher and clipboard manager"
 sudo pikaur --noconfirm -S kbdlight	# Keyboard Lights TODO
 
 info "Automatic Brightness Control"
-sudo cp ${SHELL_PATH}/scripts/abc /usr/bin/
-
-info "Automatic Brightness Control"
 sudo cp ${SHELL_PATH}/scripts/abc /usr/bin
 
 info "Linking Configurations"
