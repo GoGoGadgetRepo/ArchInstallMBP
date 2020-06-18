@@ -3,6 +3,7 @@
 info "Installing and Enabling CPUpower & fstrim."
 sudo pacman --noconfirm -S cpupower 
 sudo cpupower frequency-set -g powersave
+sudo sh -c "echo 1 > /sys/devices/system/cpu/intel_pstate/no_turbo"
 sudo systemctl enable cpupower
 sudo systemctl start cpupower
 
