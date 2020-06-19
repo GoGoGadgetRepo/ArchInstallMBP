@@ -54,7 +54,9 @@ filetype plugin indent on
 " General Set up
 set path+=**			" Search current directory recursively
 set wildmenu			" Display all matches
+set wildmode=list:longest	" Autocompletion
 set incsearch			" Incremental search
+set hlsearch			" Highlight search
 set nobackup			" No auto backup
 "set noswapfile			" No swap
 set t_Co=256			" Set if term support 256 colours
@@ -65,16 +67,19 @@ set cursorline			" Highlight current line
 setlocal spell spelllang=en_gb	" British Dictionary
 set spell 
 set clipboard=unnamedplus
-set hlsearch
 set smartindent
 set showmatch
-set incsearch
+set scrolloff=3			" Keep cursor 3 lines away from screen border
+set complete+=noinsert
+set complete-=preview
 set encoding=utf-8
 set laststatus=2
+
 " Text, Tab and indent related
 set smarttab
 set shiftwidth=4
 set tabstop=4
+set softtabstop=4
 set colorcolumn=80
 
 " Latex Suite Specific
@@ -106,6 +111,8 @@ colorscheme gruvbox
 
 
 " File type specific 
+" ============================================================================
+" Markdown
 autocmd BufNewFile,BufRead *.md set filetype=markdown
-
+autocmd BufWritePre *.py :%s/\s\+$//e
 
