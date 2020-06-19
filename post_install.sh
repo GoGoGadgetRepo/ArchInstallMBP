@@ -42,6 +42,9 @@ sudo mkinitcpio -p linux
 info "Installing Utilities"
 sudo pacman --noconfirm -S zsh man pacman-contrib zsh-syntax-highlighting htop nnn vlc youtube-dl lm_sensors unzip ttf-liberation imv bat zsh-theme-powerlevel10k
 
+sudo pacman --noconfirm -S python python-pip ctags
+pip install pynvim flake8 pylinti isort
+
 info "Applying custom settings."
 sh ${SHELL_PATH}/settings.sh
 

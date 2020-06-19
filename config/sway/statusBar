@@ -3,7 +3,7 @@ SEP=" "
 
 # Enabling automatic brightness control and keyboard lights
 ################################################################################
-source /usr/bin/abc
+# source /usr/bin/abc
 
 # Brightness of the screen
 ################################################################################

@@ -8,7 +8,7 @@ sudo pacman --noconfirm -Syu sway waybar	# Sway with top bar
 sudo pacman --noconfirm -Syu xorg-server-xwayland   #Backward Compatibility with X11
 sudo pacman --noconfirm -Syu lxapperance  	# Customization of GTK+
 info "Utilities"
-sudo pacman --noconfirm -Syu awesome-terminal-fonts ttf-liberation noto-fonts-emoji
+sudo pacman --noconfirm -Syu ttf-liberation noto-fonts-emoji ttf-fira-code ttf-font-awesome powerline-fonts
 sudo pacman --noconfirm -Syu swayidle		# Idle Management
 sudo pacman --noconfirm -Syu firefox 		# Web Browser
 sudo pacman --noconfirm -Syu neovim-qt		# GUI Text Editor 
