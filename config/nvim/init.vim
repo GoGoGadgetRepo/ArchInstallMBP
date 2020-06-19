@@ -37,8 +37,9 @@ endif
 " ============================================================================
 call plug#begin("~/.config/nvim/plugged")
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'				" Status bar Customization
+Plug 'vim-airline/vim-airline-themes'		" Themes for Status bar
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy Finder 
 
 call plug#end()
 

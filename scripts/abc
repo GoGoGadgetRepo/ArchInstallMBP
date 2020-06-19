@@ -20,7 +20,7 @@ MAX_DB=$(< /sys/class/backlight/intel_backlight/max_brightness)
 
 # Maximum and Current Back light for keyboard
 CUR_KB=$(< /sys/class/leds/smc::kbd_backlight/brightness)
-MAX_KB=$(< /sys/class/leds/smc::kbd_backlight/max_brightness)
+MAX_KB=$(( $(< /sys/class/leds/smc::kbd_backlight/max_brightness) -55 ))
 
 # Setting the new value based on configuration file
 NEW_KB=$(( ${MAX_KB} - ($LIGHT * 75) ))
