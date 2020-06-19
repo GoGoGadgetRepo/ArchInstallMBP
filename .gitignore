@@ -1,3 +1,5 @@
 config/zsh/.histfile
 config/zsh/.zcompdump
 config/nvim/spell/
+config/nvim/autoload/
+config/nvim/plugged/

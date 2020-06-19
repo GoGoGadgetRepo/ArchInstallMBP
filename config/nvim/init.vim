@@ -4,6 +4,9 @@
 "# Created	:	Sat 18 Apr 2020 21:10:18 BST
 "###############################################################################
 
+" Global Varaibles
+let vim_plug_just_installed = 0		" Initiate Setup for first time
+
 " Mode Settings for Cursor
 " 1 -> blinking block
 " 2 -> solid block
@@ -16,6 +19,34 @@ let &t_SR.="\e[3 q"	"SR = REPLACE mode
 let &t_EI.="\e[1 q"	"EI = NORMAL mode
 
 set nocompatible		" No Backward compatibility
+
+" Install Plug manager if not installed
+let vim_plug_path = expand('~/.config/nvim/autoload/plug.vim')
+if !filereadable(vim_plug_path) 
+	echo "Installing Vim-plug..."
+	silent !mkdir -p ~/.config/nvim/autoload
+	silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	let vim_plug_just_installed = 1
+endif
+" Load Vim-Plug if just installed
+if vim_plug_just_installed
+    :execute 'source '.fnameescape(vim_plug_path)
+endif
+
+" Plug Management 
+" ============================================================================
+call plug#begin("~/.config/nvim/plugged")
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+call plug#end()
+
+if vim_plug_just_installed
+    echo "Installing Bundles, please ignore key map error messages"
+    :PlugInstall
+endif
+" ============================================================================
 
 " Syntax highlighting
 filetype plugin indent on	
