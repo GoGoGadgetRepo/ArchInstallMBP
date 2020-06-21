@@ -258,6 +258,6 @@ focus_follows_mouse yes
 smart_borders on
 smart_gaps on
 
-xwayland disable
+#xwayland disable
 
 include /etc/sway/config.d/*

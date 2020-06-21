@@ -70,8 +70,6 @@ set clipboard=unnamedplus
 set smartindent
 set showmatch
 set scrolloff=3			" Keep cursor 3 lines away from screen border
-set complete+=noinsert
-set complete-=preview
 set encoding=utf-8
 set laststatus=2
 

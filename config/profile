@@ -21,7 +21,7 @@ alias g='grep --color=always'
 
 # Git Customization
 alias gs='git status'
-
+alias look="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
 
 # nnn Customization
 export NNN_COLORS="2136" 
