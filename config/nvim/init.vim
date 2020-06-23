@@ -39,7 +39,8 @@ call plug#begin("~/.config/nvim/plugged")
 
 Plug 'vim-airline/vim-airline'				" Status bar Customization
 Plug 'vim-airline/vim-airline-themes'		" Themes for Status bar
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy Finder 
+Plug 'scrooloose/nerdtree'					" File Manager
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
@@ -48,6 +49,33 @@ if vim_plug_just_installed
     :PlugInstall
 endif
 " ============================================================================
+" NERDTree -------------------------------------------------------------------
+map <F3> :NERDTreeToggle<CR>
+
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:DevIconsEnableFoldersOpenClose = 1
+
+highlight! link NERDTreeFlags NERDTreeDir
+
+" Remove expandable arrow
+let g:WebDevIconsNerdTreeBeforeGlyphPadding = ""
+let g:WebDevIconsUnicodeDecorateFolderNodes = v:true
+let NERDTreeDirArrowExpandable = "\u00a0"
+let NERDTreeDirArrowCollapsible = "\u00a0"
+let NERDTreeNodeDelimiter = "\x07"
+
+" Autorefresh on tree focus
+function! NERDTreeRefresh()
+    if &filetype == "nerdtree"
+        silent exe substitute(mapcheck("R"), "<CR>", "", "")
+    endif
+endfunction
+
+autocmd BufEnter * call NERDTreeRefresh()
+
+
+" ============================================================================
+
 
 " Syntax highlighting
 filetype plugin indent on	
