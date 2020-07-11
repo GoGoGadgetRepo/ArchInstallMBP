@@ -142,3 +142,44 @@ colorscheme gruvbox
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 autocmd BufWritePre *.py :%s/\s\+$//e
 
+
+"###############################################################################
+" Shortcuts 
+"###############################################################################
+" General
+"=========
+" Auto close brackets and quotation
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
+
+
+" Python
+map <leader>p :silent :w<CR>:!latex "%:t:r" && bibtex "%:t:r" && pdflatex % && open -a Preview "%:t:r".pdf<CR>:redraw!<CR>
+
+" Reloading VIMRC Quickly"
+" ========================
+map <leader>r   :source $MYVIMRC<CR>
+
+
+" Commenting block of code
+" =========================
+augroup commenting_blocks_of_code
+    autocmd!
+    autocmd FileType c,cpp,java,scala   let b:comment_leader = '//'
+    autocmd FileType sh,ruby,python     let b:comment_leader = '#'
+    autocmd FileType conf,fstab         let b:comment_leader = '#'
+    autocmd FileType tex                let b:comment_leader = '%'
+    autocmd FileType mail               let b:comment_leader = '>'
+    autocmd FileType vim                let b:comment_leader = '"'
+augroup END
+
+function! CommentToggle()
+    execute ':silent! s/\([^ ]\)/' . b:comment_leader . ' \1/'
+    execute ':silent! s/^\( *\)' . b:comment_leader . ' \?' . b:comment_leader . ' \?/\1/'
+endfunction
+map <leader>c :call CommentToggle()<CR>
