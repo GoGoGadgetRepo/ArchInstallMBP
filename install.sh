@@ -32,7 +32,6 @@ info "Making bootable drive and configurations"
 bootctl --path=/boot install
 cp ${SHELL_PATH}/config/boot/arch.conf /boot/loader/entries/
 cp ${SHELL_PATH}/config/boot/lts.conf /boot/loader/entries/
-cp ${SHELL_PATH}/config/boot/zen.conf /boot/loader/entries/
 cp ${SHELL_PATH}/config/boot/loader.conf /boot/loader/
 
 info "Setting the sound card index to PCA"

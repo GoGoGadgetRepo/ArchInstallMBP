@@ -7,7 +7,7 @@ info "Enabling/Starting Network Manager with 30sec WAIT"
 sudo systemctl enable NetworkManager 
 sudo systemctl start NetworkManager
 
-sleep 15
+sleep 10
 
 info "Enabling Wifi based on User Choice"
 nmcli device wifi
