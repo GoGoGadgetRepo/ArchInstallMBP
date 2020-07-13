@@ -53,7 +53,14 @@ bindkey -v
 ################################################################################
 # Auto-start Sway
 ################################################################################
-source $XDG_CONFIG_HOME/sway/autoStart
+#source $XDG_CONFIG_HOME/sway/autoStart
+
+
+################################################################################
+# Auto-start KDE
+################################################################################
+#XDG_SESSION_TYPE=wayland dbus-run-session startplasma-wayland
+
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
@@ -61,5 +68,3 @@ source $XDG_CONFIG_HOME/sway/autoStart
 # To customize prompt, run `p10k configure` or edit ~/Repo/ArchInstallMBP/config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -26,6 +26,7 @@ info "Enabling Network Manager"
 sudo systemctl enable NetworkManager-dispatcher.service
 sudo systemctl start NetworkManager-dispatcher.service
 
+sleep 5
 
 info "Installing pikaur"
 export PACK=PIKAUR
