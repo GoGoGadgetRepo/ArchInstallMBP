@@ -57,6 +57,6 @@ ln -s ${SHELL_PATH}/config/sway	${HOME}/.config
 # Waybar
 ln -s ${SHELL_PATH}/config/waybar ${HOME}/.config
 # Alacritty
-ln -s ${SHELL_PATH}/config/alacritty ${HOME}/.config
+#ln -s ${SHELL_PATH}/config/alacritty ${HOME}/.config
 
 
