@@ -48,5 +48,8 @@ sudo pacman --noconfirm -S zsh man pacman-contrib zsh-syntax-highlighting htop n
 
 
 info "Applying custom settings."
+sh ${SHELL_PATH}/power.sh
+
+info "Applying custom settings."
 sh ${SHELL_PATH}/settings.sh
 
