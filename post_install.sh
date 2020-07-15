@@ -17,8 +17,11 @@ info "Please provide the password for ${SSID}"
 read password
 nmcli dev wifi connect ${SSID} password ${password} 
 
+
+sleep 10
+
 info "Installing Reflector to find the best mirror list for downloading."
-pacman -Sy --noconfirm reflector
+sudo pacman -Sy --noconfirm reflector
 sudo cp /etc/pacman.d/mirrorlist  /etc/pacman.d/mirrorlist.backup
 sudo reflector --verbose --latest 10 --sort rate --save /etc/pacman.d/mirrorlist
 
@@ -43,7 +46,6 @@ sudo mkinitcpio -p linux
 info "Installing Utilities"
 sudo pacman --noconfirm -S zsh man pacman-contrib zsh-syntax-highlighting htop nnn vlc youtube-dl lm_sensors unzip ttf-liberation imv bat zsh-theme-powerlevel10k fzf
 
-sudo pacman --noconfirm -S python python-pip ctags
 
 info "Applying custom settings."
 sh ${SHELL_PATH}/settings.sh

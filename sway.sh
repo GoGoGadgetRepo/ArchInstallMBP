@@ -41,10 +41,6 @@ sudo pacman --noconfirm -S qt5-wayland glfw-wayland glew-wayland clutter
 sudo pacman --noconfirm -S intel-media-driver libva-intel-driver libvdpau-va-gl libva-utils
 
 
-info "Setting packages that enable Wayland GUI and Video Acceleration"
-sudo pacman --noconfirm -S qt5-wayland glfw-wayland glew-wayland clutter
-sudo pacman --noconfirm -S intel-media-driver libva-intel-driver libvdpau-va-gl libva-utils
-
 info "Installing Wayland compatible launcher and clipboard manager"
 sudo pikaur --noconfirm -S kbdlight	# Keyboard Lights TODO
 
