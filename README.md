@@ -85,3 +85,6 @@ pacstrap /mnt base base-devel vim intel-ucode sudo networkmanager wpa_supplicant
 genfstab -L -p /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
 ```
+
+
+https://bugzilla.kernel.org/show_bug.cgi?id=193121
