@@ -58,8 +58,18 @@ usermod -aG git ${USERNAME}
 usermod -aG adm ${USERNAME}
 usermod -aG video ${USERNAME}
 
-bootctl set-default arch.conf
+bootctl set-default lts.conf
 bootctl list
+
+
+info "Setting boot icon."
+pacman -S wget librsvg libicns
+wget -O /tmp/archlinux.svg https://www.archlinux.org/logos/archlinux-icon-crystal-64.svg
+rsvg-convert -w 128 -h 128 -o /tmp/archlogo.png /tmp/archlinux.svg
+png2icns /boot/.VolumeIcon.icns /tmp/archlogo.png
+rm /tmp/archlogo.png
+rm /tmp/archlinux.svg
+
 
 info "The system will shutdown in 5 seconds. Run post_install.sh after restart."
 
