@@ -28,17 +28,17 @@ info "Giving user wheel access"
 sed -i '/%wheel ALL=(ALL) NOPASSWD: ALL'/s/^#//g /etc/sudoers
 
 # systemd-boot Configurations
-info "Making bootable drive and configurations"
-bootctl --path=/boot install
-cp ${SHELL_PATH}/config/boot/arch.conf /boot/loader/entries/
-cp ${SHELL_PATH}/config/boot/lts.conf /boot/loader/entries/
-cp ${SHELL_PATH}/config/boot/loader.conf /boot/loader/
+#info "Making bootable drive and configurations"
+#bootctl --path=/boot install
+#cp ${SHELL_PATH}/config/boot/arch.conf /boot/loader/entries/
+#cp ${SHELL_PATH}/config/boot/lts.conf /boot/loader/entries/
+#cp ${SHELL_PATH}/config/boot/loader.conf /boot/loader/
 
-info "Setting the sound card index to PCA"
-cp ${SHELL_PATH}/config/modprobe/snd_hda_intel.conf /etc/modprobe.d/
-cp ${SHELL_PATH}/config/modprobe/i915.conf /etc/modprobe.d/
-cp ${SHELL_PATH}/config/modprobe/hid_apple.conf /etc/modprobe.d/
-cp ${SHELL_PATH}/config/modprobe/xhci_reset_on_suspend.conf /etc/modprobe.d/
+#info "Setting the sound card index to PCA"
+#cp ${SHELL_PATH}/config/modprobe/snd_hda_intel.conf /etc/modprobe.d/
+#cp ${SHELL_PATH}/config/modprobe/i915.conf /etc/modprobe.d/
+#cp ${SHELL_PATH}/config/modprobe/hid_apple.conf /etc/modprobe.d/
+#cp ${SHELL_PATH}/config/modprobe/xhci_reset_on_suspend.conf /etc/modprobe.d/
 
 sed -i '/Color'/s/^#//g /etc/pacman.conf
 
@@ -58,8 +58,8 @@ usermod -aG git ${USERNAME}
 usermod -aG adm ${USERNAME}
 usermod -aG video ${USERNAME}
 
-bootctl set-default lts.conf
-bootctl list
+#bootctl set-default lts.conf
+#bootctl list
 
 
 info "Setting boot icon."
@@ -69,6 +69,16 @@ rsvg-convert -w 128 -h 128 -o /tmp/archlogo.png /tmp/archlinux.svg
 png2icns /boot/.VolumeIcon.icns /tmp/archlogo.png
 rm /tmp/archlogo.png
 rm /tmp/archlinux.svg
+
+
+info "Making bootable drive and configurations"
+pacman -S grub efibootmgr
+
+mkdir -p /boot/efi
+mount /dev/sda1 /boot/efi
+
+grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot/efi
+grub-mkconfig -o /boot/grub/grub.cfg
 
 
 info "The system will shutdown in 5 seconds. Run post_install.sh after restart."
