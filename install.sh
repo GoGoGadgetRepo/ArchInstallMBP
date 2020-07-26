@@ -81,6 +81,9 @@ grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot/efi
 grub-mkconfig -o /boot/grub/grub.cfg
 
 
+sudo systemctl enable NetworkManager 
+
+
 info "The system will shutdown in 5 seconds. Run post_install.sh after restart."
 
 
