@@ -1,7 +1,7 @@
 ################################################################################
 # Environment Variables
 ################################################################################
-export EDITOR=vim
+export EDITOR=nvim
 
 ################################################################################
 # Short cuts
@@ -12,8 +12,8 @@ alias l='exa'
 alias ll='exa -la'
 alias vim='vim'
 alias vg='nvim-qt'
-alias v='vim'
-alias sv='sudo vim'
+alias v='nvim'
+alias sv='sudo nvim'
 alias svg='sudo nvim-qt'
 alias sp='sudo pacman'
 alias c='clear'
