@@ -76,7 +76,7 @@ autocmd BufEnter * call NERDTreeRefresh()
 
 " ============================================================================
 
-
+let mapleader=" "
 " Syntax highlighting
 filetype plugin indent on	
 " General Set up
