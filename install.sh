@@ -82,7 +82,8 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 
 sudo systemctl enable NetworkManager 
-
+sudo systemctl enable man-db.timer
+sudo systemctl enable paccache.timer
 
 info "The system will shutdown in 5 seconds. Run post_install.sh after restart."
 

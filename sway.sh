@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/sh
 # Defining the shell path and global variables 
 SHELL_PATH=$(readlink -f $0 | xargs dirname)
 source ${SHELL_PATH}/scripts/global.sh
