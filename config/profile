@@ -15,8 +15,10 @@ alias v='nvim'
 alias sv='sudo nvim'
 alias svg='sudo nvim-qt'
 alias sp='sudo pacman'
+alias update='sudo pacman -Syyuu'
 alias c='clear'
 alias g='grep --color=always'
+
 
 # Color Outputs
 alias diff='diff --color=auto'
