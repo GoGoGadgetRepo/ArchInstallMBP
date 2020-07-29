@@ -6,10 +6,9 @@ export EDITOR=nvim
 ################################################################################
 # Short cuts
 ################################################################################
-#alias ls='ls --color=always'
-alias ls='ls'
-alias l='exa'
-alias ll='exa -la'
+alias ls='ls --color=always'
+alias l='ls'
+alias ll='ls -la'
 alias vim='vim'
 alias vg='nvim-qt'
 alias v='nvim'
@@ -18,6 +17,11 @@ alias svg='sudo nvim-qt'
 alias sp='sudo pacman'
 alias c='clear'
 alias g='grep --color=always'
+
+# Color Outputs
+alias diff='diff --color=auto'
+alias grep='grep --color=auto'
+alias ip='ip -color=auto'
 
 # Git Customization
 alias gs='git status'
