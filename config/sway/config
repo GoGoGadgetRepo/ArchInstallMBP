@@ -30,18 +30,18 @@ set $menu wofi --show=drun -I
 output eDP-1 {
 	resolution 2880x1800
 	scale 1.5
-	bg #000000 solid_color
+	bg #3c3836 solid_color
 }
 
 ### Idle configuration
 #
 # Example configuration:
 #
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' \
-#               resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
+exec swayidle -w \
+          timeout 300 'swaylock -f -c 000000' \
+          timeout 600 'swaymsg "output * dpms off"' \
+               resume 'swaymsg "output * dpms on"' \
+          before-sleep 'swaylock -f -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -219,7 +219,7 @@ bar {
 	status_command while ${XDG_CONFIG_HOME}/sway/statusBar; do sleep 30; done
 
 	colors {
-		background #282828
+		background #3c3836
 		statusline #fbf1c7
 
     }
