@@ -12,7 +12,7 @@ set $left h
 set $down j
 set $up k
 set $right l
-set $term alacritty  	# Your preferred terminal emulator
+set $term kitty		#alacritty  	# Your preferred terminal emulator
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 set $menu wofi --show=drun -I
@@ -207,25 +207,25 @@ title_align		center
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-#bar {
-#    position top
-#	mode dock
-#	pango_markup enabled
-#	font sans-serif
-#	
+bar {
+    position top
+	mode dock
+	pango_markup enabled
+	font sans-serif
+	
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
     # status_command while date +'%d-%b-%Y %l:%M %p'; do sleep 30s; done
-#	status_command while ${XDG_CONFIG_HOME}/sway/statusBar; do sleep 30; done
-#
-#	colors {
-#		background #3c3836
-#		statusline #fbf1c7
-#
-#   }
-#}
+	status_command while ${XDG_CONFIG_HOME}/sway/statusBar; do sleep 30; done
 
-exec --no-startup-id waybar
+	colors {
+		background #3c3836
+		statusline #fbf1c7
+
+   }
+}
+
+#exec --no-startup-id waybar
 
 # PulseAudio key bindings
 bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+ unmute

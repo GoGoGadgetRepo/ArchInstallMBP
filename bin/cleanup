@@ -1,0 +1,12 @@
+#!/usr/bin/sh
+
+# Report the Disk used by Journal
+journalctl --disk-usage
+
+# Rotate the journals
+sudo journalctl --rotate
+
+# Clearing the Journals after 2 days
+sudo  journalctl  --vacuum-time=1d
+
+
