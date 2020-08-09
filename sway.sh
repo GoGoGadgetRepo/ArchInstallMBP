@@ -11,7 +11,7 @@ sudo pacman --noconfirm -Syu swayidle		# Idle Management
 sudo pacman --noconfirm -Syu firefox 		# Web Browser
 sudo pacman --noconfirm -Syu neovim-qt		# GUI Text Editor 
 sudo pacman --noconfirm -Syu mako			# Notification
-sudo pacman --noconfirm -Syu alacritty		# Terminal 
+sudo pacman --noconfirm -Syu kitty			# Terminal 
 sudo pacman --noconfirm -Syu wf-recorder	# Screen Recorder 
 sudo pacman --noconfirm -Syu grim			# Screen shot
 sudo pacman --noconfirm -Syu swaylock 		# Screen Locking
