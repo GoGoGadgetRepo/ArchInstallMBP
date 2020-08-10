@@ -34,29 +34,22 @@ sed -i '/%wheel ALL=(ALL) NOPASSWD: ALL'/s/^#//g /etc/sudoers
 #cp ${SHELL_PATH}/config/boot/lts.conf /boot/loader/entries/
 #cp ${SHELL_PATH}/config/boot/loader.conf /boot/loader/
 
-#info "Setting the sound card index to PCA"
-#cp ${SHELL_PATH}/config/modprobe/snd_hda_intel.conf /etc/modprobe.d/
-#cp ${SHELL_PATH}/config/modprobe/i915.conf /etc/modprobe.d/
-#cp ${SHELL_PATH}/config/modprobe/hid_apple.conf /etc/modprobe.d/
-#cp ${SHELL_PATH}/config/modprobe/xhci_reset_on_suspend.conf /etc/modprobe.d/
+info "Setting the sound card index to PCA"
+cp ${SHELL_PATH}/config/modprobe/snd_hda_intel.conf /etc/modprobe.d/
+cp ${SHELL_PATH}/config/modprobe/i915.conf /etc/modprobe.d/
+cp ${SHELL_PATH}/config/modprobe/hid_apple.conf /etc/modprobe.d/
+cp ${SHELL_PATH}/config/modprobe/xhci_reset_on_suspend.conf /etc/modprobe.d/
 
 sed -i '/Color'/s/^#//g /etc/pacman.conf
 
 info "Type the the username for this installation:"
 read USERNAME
-useradd -m -g users -G wheel -s /bin/bash ${USERNAME}
+useradd -m -g users -G wheel,sys,log,network,floppy,scanner,power,rfkill,users,video,storage,optical,lp,audio,adm,ftp,mail,git -s /bin/bash ${USERNAME}
 info "Password for the user ${USERNAME}"
 passwd ${USERNAME}
 info "Password for root"
 passwd
 
-info "Adding the ${USERNAME} to the video group."
-usermod -aG mail ${USERNAME}
-usermod -aG ftp ${USERNAME}
-usermod -aG audio ${USERNAME}
-usermod -aG git ${USERNAME}
-usermod -aG adm ${USERNAME}
-usermod -aG video ${USERNAME}
 
 #bootctl set-default lts.conf
 #bootctl list
