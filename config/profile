@@ -8,7 +8,7 @@ export EDITOR=nvim
 ################################################################################
 alias ls='ls --color=always'
 alias l='ls'
-alias ll='ls -la'
+alias ll='ls -lah'
 alias vim='vim'
 alias vg='nvim-qt'
 alias v='nvim'

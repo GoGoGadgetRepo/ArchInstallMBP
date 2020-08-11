@@ -22,3 +22,8 @@ ln -s ${SHELL_PATH}/config/nvim ${HOME}/.config
 
 info "NetworkManager Configuration"
 sudo cp ${SHELL_PATH}/config/etc/NetworkManager.conf /etc/NetworkManager/ 
+
+info "Grub Configurations"
+sudo pacman -S --noconfirm grub-theme-vimix
+sudo cp ${SHELL_PATH}/config/grub/grub /etc/default/
+sudo grub-mkconfig -o /boot/grub/grub.cfg

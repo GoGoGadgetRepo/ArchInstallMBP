@@ -30,7 +30,8 @@ set $menu wofi --show=drun -I
 output eDP-1 {
 	resolution 2880x1800
 	scale 1.5
-	bg #3c3836 solid_color
+	#bg #3c3836 solid_color
+	bg $HOME/.config/sway/wallpaper.jpg fill
 }
 
 ### Idle configuration
