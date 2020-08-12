@@ -27,3 +27,8 @@ info "Grub Configurations"
 sudo pacman -S --noconfirm grub-theme-vimix
 sudo cp ${SHELL_PATH}/config/grub/grub /etc/default/
 sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+info "Reducing Entropy"
+sudo pacman -S --noconfirm haveged
+sudo systemctl enable haveged
+sudo systemctl start haveged
