@@ -30,7 +30,8 @@ Following is my disk set-up. I am choosing not to create a special partition for
 | Size | Mount Point | Format | Partition Code |
 |---|---|---|---|
 | 300M | /boot | FAT32 | UEFI Boot Partition |
-| * | / | ext4 | Linux File System |
+| 200G | / | ext4 | Linux File System |
+| * | /home | ext4 | Linux Home System |
 
 ```{bash}
 cgdisk /dev/sda
@@ -43,7 +44,7 @@ mkfs.vfat -F32 /dev/sda1
 mkfs.ext4 -l main /dev/sda2
 ```
 
-#### Mounting drives for install
+### Mounting drives for install
 ```{bash}
 mount /dev/sda2 /mnt
 mkdir /mnt/boot && mount /dev/sda1 /mnt/boot
@@ -85,6 +86,15 @@ pacstrap /mnt base base-devel vim intel-ucode sudo networkmanager wpa_supplicant
 genfstab -L -p /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
 ```
-
+## Running Scripts 
+There are 3+ scripts that need to be run in each stage.
+| Script Name | Stage | Purpose |
+| --- | --- | --- |
+| post_install.sh | Preparation | Install basic required packages |
+| install.sh | Install | Basic Configuration and Bootup setup |
+| post_install.sh | Post Install | Starting Services for day and patching |
+| sway.sh | Desktop Environment | Setting up Sway DE - Development |
+| gnome.sh | Desktop Environment | Setting up Gnome DE - Development |
+| kde.sh | Desktop Environment | Setting up KDE DE - Development |
 
 https://bugzilla.kernel.org/show_bug.cgi?id=193121

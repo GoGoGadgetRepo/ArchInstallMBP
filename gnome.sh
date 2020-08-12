@@ -25,5 +25,3 @@ gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffe
 sudo systemctl enable gdm
 sudo systemctl start gdm
 
-# Alacritty
-ln -s ${SHELL_PATH}/config/alacritty ${HOME}/.config
