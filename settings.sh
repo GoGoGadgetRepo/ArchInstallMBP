@@ -7,6 +7,8 @@ source ${SHELL_PATH}/scripts/global.sh
 # Ensuring the Configuration Directory is present
 mkdir -p $HOME/.config
 
+ln -s ${SHELL_PATH}/bin $HOME/bin
+
 info "Applying Global Configuration"
 sudo cp ${SHELL_PATH}/config/zsh/zshenv /etc/zsh/
 
