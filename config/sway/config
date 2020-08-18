@@ -208,25 +208,25 @@ title_align		center
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-bar {
-    position top
-	mode dock
-	pango_markup enabled
-	font sans-serif
-	
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    # status_command while date +'%d-%b-%Y %l:%M %p'; do sleep 30s; done
-	status_command while ${XDG_CONFIG_HOME}/sway/statusBar; do sleep 30; done
+#bar {
+#    position top
+#	mode dock
+#	pango_markup enabled
+#	font sans-serif
+#	
+#    # When the status_command prints a new line to stdout, swaybar updates.
+#    # The default just shows the current date and time.
+#    # status_command while date +'%d-%b-%Y %l:%M %p'; do sleep 30s; done
+#	status_command while ${XDG_CONFIG_HOME}/sway/statusBar; do sleep 30; done
+#
+#	colors {
+#		background #3c3836
+#		statusline #fbf1c7
+#
+#   }
+#}
 
-	colors {
-		background #3c3836
-		statusline #fbf1c7
-
-   }
-}
-
-#exec --no-startup-id waybar
+exec --no-startup-id waybar
 
 # PulseAudio key bindings
 bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+ unmute

@@ -18,4 +18,5 @@ sudo pacman --noconfirm -Syu xorg-server-xwayland
 info "KDE"
 sudo pacman --noconfirm -Syu plasma
 sudo pacman --noconfirm -syu kde-applications
-sudo pacman --noconfirm -syu sddm 
+sudo pacman --noconfirm -syu powerdevil
+#sudo pacman --noconfirm -syu sddm 
