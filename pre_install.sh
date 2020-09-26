@@ -7,6 +7,7 @@ source ${SHELL_PATH}/scripts/global.sh
 info "Formatting the drivers..."
 mkfs.vfat -F32 /dev/sda1
 mkfs.ext4 /dev/sda2
+mkfs.ext4 /dev/sda3
 #mkswap /dev/sda3
 #swapon /dev/sda3
 
@@ -24,13 +25,13 @@ cp /etc/pacman.d/mirrorlist  /etc/pacman.d/mirrorlist.backup
 reflector --verbose --latest 10 --sort rate --save /etc/pacman.d/mirrorlist
 
 info "Installing all packages to get sway under wayland working with audio. Some additional useful packages are included also."
-pacstrap /mnt base base-devel vim neovim intel-ucode sudo networkmanager wpa_supplicant git alsa-utils pulseaudio-alsa coreutils dosfstools util-linux exa linux linux-firmware linux-headers linux-lts linux-lts-headers  broadcom-wl sysfsutils usbutils mtools dialog
+pacstrap /mnt base base-devel vim neovim intel-ucode sudo networkmanager wpa_supplicant git alsa-utils pulseaudio-alsa coreutils dosfstools util-linux exa linux linux-firmware linux-headers linux-lts linux-lts-headers sysfsutils usbutils mtools dialog
 
 info "Generating fstab for the drives."
 genfstab -L -p /mnt >> /mnt/etc/fstab
 
 info "Creating RAM Disk."
-echo "tmpfs	/tmp	tmpfs	rw,nodev,nosuid,size=4G	0 0" >> /mnt/etc/fstab
+echo "tmpfs	/tmp	tmpfs	rw,nodev,nosuid,size=3G	0 0" >> /mnt/etc/fstab
 
 
 info "Copying install scripts to new location"
