@@ -1,0 +1,12 @@
+sway
+waybar
+xorg-server-xwayland
+swayidle		
+mako			
+kitty
+wf-recorder
+grim			
+swaylock 		
+brightnessctl	
+wofi
+wl-clipboard
