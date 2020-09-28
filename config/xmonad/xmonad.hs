@@ -253,7 +253,7 @@ myLogHook = return ()
 -- By default, do nothing.
 myStartupHook = do
         spawnOnce "xrandr -s 1920x1200 &"
-        spawnOnce "nitrogen --restore &"
+        spawnOnce "getBingWallpaper.sh &"
         spawnOnce "picom &"
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
