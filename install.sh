@@ -65,7 +65,7 @@ rm /tmp/archlinux.svg
 
 
 info "Making bootable drive and configurations"
-pacman -S grub efibootmgr
+pacman -S --noconfirm grub efibootmgr
 
 mkdir -p /boot/efi
 mount /dev/sda1 /boot/efi

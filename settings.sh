@@ -20,10 +20,10 @@ ln -s ${SHELL_PATH}/config/zsh ${HOME}/.config
 sudo chsh -s /bin/zsh ${USER}
 
 info "Neovim Configuration"
-ln -s ${SHELL_PATH}/config/nvim ${HOME}/.config
+ln -s ${SHELL_PATH}/config/nvim ${HOME}/.config/
 
 info "Rofi Configuration"
-ln -s ${SHELL_PATH}/config/rofi ${HOME}/.config
+ln -s ${SHELL_PATH}/config/rofi ${HOME}/.config/
 
 info "NetworkManager Configuration"
 sudo cp ${SHELL_PATH}/config/etc/NetworkManager.conf /etc/NetworkManager/ 
