@@ -56,7 +56,7 @@ passwd
 
 
 info "Setting boot icon."
-pacman -S wget librsvg libicns
+pacman -S --noconfirm wget librsvg libicns
 wget -O /tmp/archlinux.svg https://www.archlinux.org/logos/archlinux-icon-crystal-64.svg
 rsvg-convert -w 128 -h 128 -o /tmp/archlogo.png /tmp/archlinux.svg
 png2icns /boot/.VolumeIcon.icns /tmp/archlogo.png

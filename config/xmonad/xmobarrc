@@ -5,14 +5,14 @@ Config {
    , bgColor =      "#000000"
    , fgColor =      "#ebdbb2"
    , position =     Top
-   , alpha =		150
+   , alpha =	    150
    , border =       BottomB
    , borderColor =  "#646464"
 
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = "%multicpu% | %coretemp% | %memory% | %dynnetwork% }{ %RJTT% | %date% || %kbd% | %battery% " 
+   , template = "%multicpu% | %locks% | %coretemp% | %memory% | %dynnetwork% }{ %RJTT% | %date% | %kbd% | %battery% " 
 
    -- general behavior
    , lowerOnStart =     True    -- send to bottom of window stack on start
@@ -77,7 +77,11 @@ Config {
                              , "--normal"   , "orange"
                              , "--high"     , "red"
                              ] 10
-
+        -- Brightness
+        , Run Brightness ["-t", ""] 60
+        
+        , Run Locks
+        
         -- battery monitor
         , Run Battery        [ "--template" , "Batt: <acstatus>"
                              , "--Low"      , "20"        -- units: %
@@ -99,6 +103,10 @@ Config {
         --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
         , Run Date           "<fc=#ABABAB>%F (%a) %T</fc>" "date" 10
 
+        , Run Brightness    [ "-t", "<ipat>"
+                            , "--"
+                            ] 30
+                                
         -- keyboard layout indicator
         , Run Kbd            [ ("us(dvorak)" , "<fc=#00008B>DV</fc>")
                              , ("gb"         , "<fc=#8B0000>GB</fc>")
