@@ -4,19 +4,24 @@ SHELL_PATH=$(readlink -f $0 | xargs dirname)
 source ${SHELL_PATH}/scripts/global.sh
 
 info "Installing Xorg & Intel Drivers"
-sudo pacman --noconfirm -Syu xorg-server		# Xorg Server
-sudo pacman --noconfirm -Syu xorg-apps			# Xorg Apps 
-sudo pacman --noconfirm -Syu xf86-video-intel mesa lib32-mesa	# X Video Drivers
-sudo pacman --noconfirm -Syu vulkan-intel
-sudo pacman --noconfirm -Syu xf86-video-fbdev		# Fallback Video Driver
+install ${SHELL_PATH}/data/xorg.list
 
-info "Wayland Stuff --> Preparing for future switch over"
-sudo pacman --noconfirm -Syu plasma-wayland-session
-sudo pacman --noconfirm -Syu xorg-server-xwayland
+info "Installing KDE"
+install ${SHELL_PATH}/data/kde.list
+
+info "Installing Preferred Applications"
+install ${SHELL_PATH}/data/myapps.list
+
+info "Multimedia frameworks"
+sudo pacman --noconfirm -Syu gst-libav gst-plugins-base gst-plugins-good libde265 gstreamer-vaapi
+
+info "Setting packages that enable Wayland GUI and Video Acceleration"
+sudo pacman --noconfirm -S qt5-wayland glfw-wayland glew-wayland clutter
+sudo pacman --noconfirm -S intel-media-driver libva-intel-driver libvdpau-va-gl libva-utils
 
 
-info "KDE"
-sudo pacman --noconfirm -Syu plasma
-sudo pacman --noconfirm -syu kde-applications
-sudo pacman --noconfirm -syu powerdevil
-#sudo pacman --noconfirm -syu sddm 
+info "Login Manager"
+sudo pacman --noconfirm -Syu gdm
+
+sudo systemctl enable gdm
+sudo systemctl start gdm

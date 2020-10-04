@@ -7,15 +7,20 @@
 -- IMPORTS
 -- ###########################################################################
 import XMonad
+import XMonad.Config.Desktop
+import XMonad.Hooks.DynamicLog
 import XMonad.Util.SpawnOnce
-import XMonad.Util.Run
+import XMonad.Util.Run(spawnPipe)
+import XMonad.Util.EZConfig(additionalKeys)
+import XMonad.Util.Paste
 import XMonad.Hooks.ManageDocks
-import XMonad.Hooks.ManageDocks
+import XMonad.Layout.Spacing
 
 import Graphics.X11.ExtraTypes.XF86
 
 import Data.Monoid
 import System.Exit
+import System.IO
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
@@ -33,8 +38,9 @@ myFocusFollowsMouse = True
 myClickJustFocuses :: Bool
 myClickJustFocuses = False
 
--- Width of the window border in pixels.
+-- Width and Gaps of the window border in pixels.
 myBorderWidth   = 3
+myWindowSpacing = 2
 
 -- modMask lets you specify which modkey you want to use. The default
 -- is mod1Mask ("left alt").  You may also consider using mod3Mask
@@ -189,10 +195,10 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = avoidStruts (tiled ||| Mirror tiled ||| Full)
+myLayout = avoidStruts tiled ||| Mirror tiled ||| Full
   where
      -- default tiling algorithm partitions the screen into two panes
-     tiled   = Tall nmaster delta ratio
+     tiled   = spacing myWindowSpacing $ Tall nmaster delta ratio
 
      -- The default number of windows in the master pane
      nmaster = 1
@@ -261,7 +267,7 @@ myStartupHook = do
 -- Run xmonad with the settings you specify. No need to modify this.
 --
 main = do 
-  xmproc <- spawnPipe "xmobar -x 0 /home/masroor/.config/xmobar/xmobarrc"
+  topBar <- spawnPipe "xmobar -x 0 /home/masroor/.config/xmobar/xmobarrc"
   xmonad $ docks defaults
 
 -- A structure containing your configuration settings, overriding

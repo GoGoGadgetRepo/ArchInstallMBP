@@ -3,6 +3,9 @@
 SHELL_PATH=$(readlink -f $0 | xargs dirname)
 source ${SHELL_PATH}/scripts/global.sh
 
+info "Setting up X11"
+install ${SHELL_PATH}/data/xorg.list
+
 info "Setting up Xmonad"
 install ${SHELL_PATH}/data/xmonad.list
 

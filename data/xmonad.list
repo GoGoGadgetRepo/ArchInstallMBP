@@ -1,9 +1,6 @@
-picom
-xf86-video-fbdev
-xf86-video-intel
-xf86-video-vesa
 xmobar
 xmonad
 xmonad-contrib
-xorg
-xorg-xinit
+rofi
+feh
+dmenu

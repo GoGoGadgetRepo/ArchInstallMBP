@@ -1,0 +1,11 @@
+xf86-video-fbdev
+xf86-video-intel
+xf86-video-vesa
+xorg
+xorg-xinit
+xorg-server
+picom
+mesa
+lib32-mesa
+vulkan-intel
+xorg-server-xwayland
