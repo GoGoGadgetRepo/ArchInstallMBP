@@ -1,7 +1,7 @@
 #!/usr/bin/sh
 # Defining the shell path and global variables 
 SHELL_PATH=$(readlink -f $0 | xargs dirname)
-source ${SHELL_PATH}/scripts/global.sh
+source ${SHELL_PATH}/bin/global.sh
 
 info "Setting up X11"
 install ${SHELL_PATH}/data/xorg.list

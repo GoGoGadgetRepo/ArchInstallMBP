@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 # Defining the shell path and global variables 
 SHELL_PATH=$(readlink -f $0 | xargs dirname)
-source ${SHELL_PATH}/scripts/global.sh
+source ${SHELL_PATH}/bin/global.sh
 
 
 sudo pacman --noconfirm -Syu gnome gnome-extra gnome-tweaks gdm
@@ -22,6 +22,6 @@ sudo pacman --noconfirm -S intel-media-driver libva-intel-driver libvdpau-va-gl 
 
 gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
 
-sudo systemctl enable gdm
-sudo systemctl start gdm
+#sudo systemctl enable gdm
+#sudo systemctl start gdm
 

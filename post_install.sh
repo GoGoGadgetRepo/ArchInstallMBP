@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 # Defining the shell path and global variables 
 SHELL_PATH=$(readlink -f $0 | xargs dirname)
-source ${SHELL_PATH}/scripts/global.sh
+source ${SHELL_PATH}/bin/global.sh
 
 info "Enabling/Starting Network Manager with 30sec WAIT"
 sudo systemctl enable NetworkManager 

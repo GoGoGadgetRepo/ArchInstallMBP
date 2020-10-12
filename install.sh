@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 # Defining the shell path and global variables 
 SHELL_PATH=$(readlink -f $0 | xargs dirname)
-source ${SHELL_PATH}/scripts/global.sh
+source ${SHELL_PATH}/bin/global.sh
 
 info "Setting Time zone and Time"
 ln -sf /usr/share/zoneinfo/Europe/London /etc/localtime
