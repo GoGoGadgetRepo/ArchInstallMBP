@@ -44,7 +44,7 @@ pikaur --noconfirm -S wd719x-firmware aic94xx-firmware bcwc-pcie-git
 sudo mkinitcpio -p linux
 
 info "Installing Utilities"
-sudo pacman --noconfirm -S zsh man pacman-contrib zsh-syntax-highlighting htop nnn vlc youtube-dl lm_sensors unzip ttf-liberation imv bat zsh-theme-powerlevel10k fzf jq
+sudo pacman --noconfirm -S zsh man pacman-contrib zsh-syntax-highlighting htop nnn vlc youtube-dl lm_sensors unzip ttf-liberation imv bat fzf jq
 
 
 info "Customizing Grub"

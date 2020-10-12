@@ -44,13 +44,13 @@ sudo cp ${SHELL_PATH}/config/services/powertop.service /etc/systemd/system/
 sudo systemctl enable powertop.service
 sudo systemctl start powertop.service
 
-# sudo sh -c "echo 'med_power_with_dipm' >  /sys/class/scsi_host/host0/link_power_management_policy"
-# sudo sh -c "echo 1 >  /sys/module/snd_hda_intel/parameters/power_save"
-# sudo sh -c "echo '1500' > /proc/sys/vm/dirty_writeback_centisecs"
-# sudo sh -c "echo 'auto' >  /sys/bus/usb/devices/1-12/power/control"
-# sudo sh -c "echo 'auto' >  /sys/bus/usb/devices/2-4/power/control"
-# 
-# sudo sh -c "echo 'enabled' >  /sys/bus/usb/devices/usb1/power/wakeup"
-# sudo sh -c "echo 'enabled' >  /sys/bus/usb/devices/2-4/power/wakeup"
-# sudo sh -c "echo 'enabled' >  /sys/bus/usb/devices/usb2/power/wakeup"
-# 
+sudo sh -c "echo 'med_power_with_dipm' >  /sys/class/scsi_host/host0/link_power_management_policy"
+sudo sh -c "echo 1 >  /sys/module/snd_hda_intel/parameters/power_save"
+sudo sh -c "echo '1500' > /proc/sys/vm/dirty_writeback_centisecs"
+sudo sh -c "echo 'auto' >  /sys/bus/usb/devices/1-12/power/control"
+sudo sh -c "echo 'auto' >  /sys/bus/usb/devices/2-4/power/control"
+ 
+sudo sh -c "echo 'enabled' >  /sys/bus/usb/devices/usb1/power/wakeup"
+sudo sh -c "echo 'enabled' >  /sys/bus/usb/devices/2-4/power/wakeup"
+sudo sh -c "echo 'enabled' >  /sys/bus/usb/devices/usb2/power/wakeup"
+ 

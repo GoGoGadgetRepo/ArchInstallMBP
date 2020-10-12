@@ -20,8 +20,8 @@ sudo pacman --noconfirm -S qt5-wayland glfw-wayland glew-wayland clutter
 sudo pacman --noconfirm -S intel-media-driver libva-intel-driver libvdpau-va-gl libva-utils
 
 
-info "Login Manager"
-sudo pacman --noconfirm -Syu gdm
+#info "Login Manager"
+#sudo pacman --noconfirm -Syu gdm
 
-sudo systemctl enable gdm
-sudo systemctl start gdm
+#sudo systemctl enable gdm
+#sudo systemctl start gdm

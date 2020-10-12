@@ -76,10 +76,12 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- volume keys
     , ((0, xF86XK_AudioMute), spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
-	, ((0, xF86XK_AudioLowerVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ -10%")
+    , ((0, xF86XK_AudioLowerVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ -10%")
     , ((0, xF86XK_AudioRaiseVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ +10%")
     -- launch dmenu
-    , ((modm,               xK_p     ), spawn "dmenu_run")
+    --, ((modm,               xK_p     ), spawn "dmenu_run")
+    -- launch rofi using alias in profile for shortcut
+    , ((modm,               xK_p     ), spawn "rofi -combi-modi window,drun,ssh -show combi -theme fancy -show-icons")
 
     -- launch gmrun
     , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
@@ -200,7 +202,8 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 myLayout = avoidStruts tiled ||| Mirror tiled ||| Full
   where
      -- default tiling algorithm partitions the screen into two panes
-     tiled   = spacing myWindowSpacing $ Tall nmaster delta ratio
+     -- tiled   = spacing myWindowSpacing $ Tall nmaster delta ratio
+     tiled   = spacingRaw True (Border 0 10 10 10) True (Border 10 10 10 10) True $ Tall nmaster delta ratio
 
      -- The default number of windows in the master pane
      nmaster = 1

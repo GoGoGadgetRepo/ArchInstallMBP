@@ -1,3 +1,6 @@
+
+source $HOME/bin/global.sh
+
 ################################################################################
 # Environment Variables
 ################################################################################
@@ -19,6 +22,7 @@ alias update='sudo pacman -Syyuu'
 alias c='clear'
 alias g='grep --color=always'
 
+alias xm="startx $HOME/.xinitrc xmonad"
 
 # Color Outputs
 alias diff='diff --color=auto'
