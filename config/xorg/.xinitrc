@@ -32,4 +32,21 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-exec xmonad
+session=${1}
+
+
+# Autostart Section
+xrandr -s 1920x1200 &
+picom &
+
+case $session in
+	dwm			) exec dwm;;
+	kde			) exec startplasma-x11;;
+	xmonad		) exec xmonad;;
+	*			) exec $1;;
+esac
+
+exec ~/bin/getBingWallpaper.sh &
+
+#exec xmonad
+#exec dwm 

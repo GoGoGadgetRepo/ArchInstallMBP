@@ -3,9 +3,11 @@ xf86-video-intel
 xf86-video-vesa
 xorg
 xorg-xinit
+xorg-xrandr
 xorg-server
 picom
 mesa
 lib32-mesa
 vulkan-intel
 xorg-server-xwayland
+xf86-input-synaptics

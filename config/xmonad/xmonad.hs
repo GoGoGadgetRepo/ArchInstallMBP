@@ -28,7 +28,8 @@ import qualified Data.Map        as M
 -- ###########################################################################
 -- VARIABLES
 -- ###########################################################################
-myTerminal      = "alacritty"                     -- Preferred Terminal Program
+--myTerminal      = "alacritty"                     -- Preferred Terminal Program
+myTerminal      = "st"                     -- Preferred Terminal Program
 
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse :: Bool
@@ -40,6 +41,7 @@ myClickJustFocuses = False
 
 -- Width and Gaps of the window border in pixels.
 myBorderWidth   = 3
+myWindowSpacing :: Int 
 myWindowSpacing = 2
 
 -- modMask lets you specify which modkey you want to use. The default
