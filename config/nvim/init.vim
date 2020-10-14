@@ -103,6 +103,7 @@ set laststatus=2
 
 " Text, Tab and indent related
 set smarttab
+set expandtab			" Ensure that tabs are converted to spaces
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4

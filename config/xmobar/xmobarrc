@@ -4,15 +4,17 @@ Config {
      font =         "xft:Ubuntu Mono:pixelsize=18:bold:antialias=true:hinting=true"
    , bgColor =      "#000000"
    , fgColor =      "#ebdbb2"
-   , position =     Top
+   , position =     TopW C 75
    , alpha =	    150
-   , border =       BottomB
+   , border =       TopB
    , borderColor =  "#646464"
+   , textOffset = -1
+   , iconOffset = -1
 
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = "%multicpu% | %locks% | %coretemp% | %memory% | %dynnetwork% }{ %RJTT% | %date% | %kbd% | %battery% " 
+   , template = "%multicpu% | %locks% | %coretemp% | %memory% |  %dynnetwork% }{  <action='xclock'>%date%</action> | %EGPF% | %battery% " 
 
    -- general behavior
    , lowerOnStart =     True    -- send to bottom of window stack on start
@@ -39,7 +41,7 @@ Config {
    , commands = 
 
         -- weather monitor
-        [ Run Weather "RJTT" [ "--template", "<skyCondition> | <fc=#4682B4><tempC></fc>°C | <fc=#4682B4><rh></fc>% | <fc=#4682B4><pressure></fc>hPa"
+        [ Run Weather "EGPF" [ "--template", "<skyCondition> | <fc=#4682B4><tempC></fc>°C | <fc=#4682B4><rh></fc>% | <fc=#4682B4><pressure></fc>hPa"
                              ] 36000
 
         -- network activity monitor (dynamic interface resolution)
@@ -52,7 +54,7 @@ Config {
                              ] 10
 
         -- cpu activity monitor
-        , Run MultiCpu       [ "--template" , "Cpu: <total0>%|<total1>%"
+        , Run MultiCpu       [ "--template" , "Cpu:<total>%"
                              , "--Low"      , "50"         -- units: %
                              , "--High"     , "85"         -- units: %
                              , "--low"      , "green"
@@ -62,23 +64,23 @@ Config {
 
         -- cpu core temperature monitor
         , Run CoreTemp       [ "--template" , "Temp: <core0>°C|<core1>°C"
-                             , "--Low"      , "45"        -- units: °C
-                             , "--High"     , "80"        -- units: °C
+                             , "--Low"      , "50"        -- units: °C
+                             , "--High"     , "65"        -- units: °C
                              , "--low"      , "green"
                              , "--normal"   , "orange"
                              , "--high"     , "red"
                              ] 50
                           
         -- memory usage monitor
-        , Run Memory         [ "--template" ,"Mem: <usedratio>%"
-                             , "--Low"      , "20"        -- units: %
+        , Run Memory         [ "--template" ,"Mem:<usedratio>%"
+                             , "--Low"      , "40"        -- units: %
                              , "--High"     , "90"        -- units: %
                              , "--low"      , "green"
                              , "--normal"   , "orange"
                              , "--high"     , "red"
                              ] 10
         -- Brightness
-        , Run Brightness ["-t", ""] 60
+        , Run Brightness ["-t", "<ipat>"] 60
         
         , Run Locks
         
@@ -101,7 +103,7 @@ Config {
 
         -- time and date indicator 
         --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
-        , Run Date           "<fc=#ABABAB>%F (%a) %T</fc>" "date" 10
+        , Run Date           "<fc=#ABABAB>%F (%a) %r</fc>" "date" 10
 
         , Run Brightness    [ "-t", "<ipat>"
                             , "--"

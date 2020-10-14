@@ -11,3 +11,4 @@ lib32-mesa
 vulkan-intel
 xorg-server-xwayland
 xf86-input-synaptics
+xorg-xclock

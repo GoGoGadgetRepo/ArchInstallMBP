@@ -41,8 +41,6 @@ myClickJustFocuses = False
 
 -- Width and Gaps of the window border in pixels.
 myBorderWidth   = 3
-myWindowSpacing :: Int 
-myWindowSpacing = 2
 
 -- modMask lets you specify which modkey you want to use. The default
 -- is mod1Mask ("left alt").  You may also consider using mod3Mask
