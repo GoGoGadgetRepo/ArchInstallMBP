@@ -41,7 +41,7 @@ picom &
 
 case $session in
 	dwm			) exec dwm;;
-	kde			) exec startplasma-x11;;
+	kde			) exec startplasma-wayland;;
 	xmonad		) exec xmonad;;
 	*			) exec $1;;
 esac

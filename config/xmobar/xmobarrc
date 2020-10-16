@@ -4,7 +4,7 @@ Config {
      font =         "xft:Ubuntu Mono:pixelsize=18:bold:antialias=true:hinting=true"
    , bgColor =      "#000000"
    , fgColor =      "#ebdbb2"
-   , position =     TopW C 75
+   , position =     TopW C 100
    , alpha =	    150
    , border =       TopB
    , borderColor =  "#646464"
@@ -14,7 +14,7 @@ Config {
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = "%multicpu% | %locks% | %coretemp% | %memory% |  %dynnetwork% }{  <action='xclock'>%date%</action> | %EGPF% | %battery% " 
+   , template = "%multicpu% | %locks% | %coretemp% | %memory% |  %dynnetwork% }{   %EGPF% | %battery% | <action='xclock'>%date%</action>" 
 
    -- general behavior
    , lowerOnStart =     True    -- send to bottom of window stack on start
@@ -85,7 +85,7 @@ Config {
         , Run Locks
         
         -- battery monitor
-        , Run Battery        [ "--template" , "Batt: <acstatus>"
+        , Run Battery        [ "--template" , "Batt:<acstatus>"
                              , "--Low"      , "20"        -- units: %
                              , "--High"     , "80"        -- units: %
                              , "--low"      , "red"
@@ -103,8 +103,7 @@ Config {
 
         -- time and date indicator 
         --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
-        , Run Date           "<fc=#ABABAB>%F (%a) %r</fc>" "date" 10
-
+        , Run Date           "<fc=#4682B4>%F</fc> (%a) <fc=#FFFF00>%r</fc>" "date" 10
         , Run Brightness    [ "-t", "<ipat>"
                             , "--"
                             ] 30

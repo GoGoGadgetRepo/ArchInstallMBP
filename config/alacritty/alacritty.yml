@@ -21,7 +21,7 @@ font:
     italic:
         family: serif 
         style: Italic
-    size: 8.0
+    size: 10.0
 
 # Colors (Gruvbox dark)
 colors:

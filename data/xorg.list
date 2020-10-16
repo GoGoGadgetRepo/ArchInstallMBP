@@ -12,3 +12,5 @@ vulkan-intel
 xorg-server-xwayland
 xf86-input-synaptics
 xorg-xclock
+xclip
+xorg-xclipboard

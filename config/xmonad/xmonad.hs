@@ -8,13 +8,17 @@
 -- ###########################################################################
 import XMonad
 import XMonad.Config.Desktop
-import XMonad.Hooks.DynamicLog
 import XMonad.Util.SpawnOnce
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import XMonad.Util.Paste
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.DynamicLog
 import XMonad.Layout.Spacing
+import XMonad.Layout.ResizableTile
+import XMonad.Layout.TwoPane
+import XMonad.Layout.BinarySpacePartition
+import XMonad.Layout.Dwindle
 
 import Graphics.X11.ExtraTypes.XF86
 
@@ -28,8 +32,9 @@ import qualified Data.Map        as M
 -- ###########################################################################
 -- VARIABLES
 -- ###########################################################################
+myTerminal      = "kitty"                     -- Preferred Terminal Program
 --myTerminal      = "alacritty"                     -- Preferred Terminal Program
-myTerminal      = "st"                     -- Preferred Terminal Program
+--myTerminal      = "st"                     -- Preferred Terminal Program
 
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse :: Bool
@@ -201,7 +206,7 @@ myLayout = avoidStruts tiled ||| Mirror tiled ||| Full
   where
      -- default tiling algorithm partitions the screen into two panes
      -- tiled   = spacing myWindowSpacing $ Tall nmaster delta ratio
-     tiled   = spacingRaw True (Border 0 10 10 10) True (Border 10 10 10 10) True $ Tall nmaster delta ratio
+     tiled   = spacingRaw True (Border 0 5 5 5) True (Border 5 5 5 5) True $ Tall nmaster delta ratio
 
      -- The default number of windows in the master pane
      nmaster = 1
@@ -270,7 +275,7 @@ myStartupHook = do
 -- Run xmonad with the settings you specify. No need to modify this.
 --
 main = do 
-  topBar <- spawnPipe "xmobar -x 0 /home/masroor/.config/xmobar/xmobarrc"
+  topBar <- spawnPipe "xmobar -d -x 0 $HOME/.config/xmobar/xmobarrc"
   xmonad $ docks defaults
 
 -- A structure containing your configuration settings, overriding
