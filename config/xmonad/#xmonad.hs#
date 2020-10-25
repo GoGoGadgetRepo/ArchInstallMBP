@@ -271,9 +271,7 @@ myLogHook = return ()
 -- By default, do nothing.
 myStartupHook = do
         spawnOnce "xrandr -s 1920x1200 &"
-        spawnOnce "trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 20 --transparent true --alpha 0 --tint 0x283333 --height 23 --monitor 1 &"
         spawnOnce "getBingWallpaper.sh &"
-        spawnOnce "nm-applet &"
         spawnOnce "picom &"
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.

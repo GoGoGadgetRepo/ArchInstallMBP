@@ -31,4 +31,4 @@ ln -s ${SHELL_PATH}/config/xmonad/xmonad.hs $HOME/.xmonad/xmonad.hs
 
 info "Xmobar Configuration"
 mkdir -p $HOME/.config/xmobar
-ln -s ${SHELL_PATH}/config/xmobar $HOME/.config/xmobar
+ln -s ${SHELL_PATH}/config/xmobar/xmobarrc $HOME/.config/xmobar/xmobarrc

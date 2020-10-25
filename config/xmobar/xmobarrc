@@ -4,7 +4,7 @@ Config {
      font =         "xft:Ubuntu Mono:pixelsize=18:bold:antialias=true:hinting=true"
    , bgColor =      "#000000"
    , fgColor =      "#ebdbb2"
-   , position =     TopW C 100
+   , position =     TopW L 75
    , alpha =	    150
    , border =       TopB
    , borderColor =  "#646464"

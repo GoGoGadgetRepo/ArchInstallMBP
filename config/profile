@@ -24,6 +24,8 @@ alias g='grep --color=always'
 
 alias xm="startx $HOME/.xinitrc xmonad"
 
+alias kde="XDG_SESSION_TYPE=wayland dbus-run-session startplasma-wayland"
+
 # Color Outputs
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'
